@@ -8,7 +8,8 @@ interface HeroProps {
   title: string;
   description1: React.ReactNode;
   description2: React.ReactNode;
-  backgroundImage: StaticImageData;
+  backgroundImage?: StaticImageData;
+  backgroundVideo?: string;
   className?: string;
   children?: React.ReactNode;
 }
@@ -18,6 +19,7 @@ const Hero = ({
   description1, 
   description2, 
   backgroundImage, 
+  backgroundVideo,
   className = "",
   children 
 }: HeroProps) => {
@@ -27,15 +29,28 @@ const Hero = ({
 
   return (
     <div className={`relative w-full min-h-screen flex items-end ${className}`}>
-      {/* Background Image */}
-      <div className="absolute inset-0 z-10">
-        <Image 
-          src={backgroundImage}
-          alt={title || "Hero background"}
-          fill
-          priority
-          className="object-cover"
-        />
+      {/* Background Media */}
+      <div className="absolute inset-0 z-10 overflow-hidden">
+        {backgroundVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={backgroundVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : backgroundImage ? (
+          <Image 
+            src={backgroundImage}
+            alt={title || "Hero background"}
+            fill
+            priority
+            className="object-cover"
+          />
+        ) : null}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent"></div>
       </div>
       <div className="relative flex justify-end items-end px-6 md:px-12 xl:px-24 pb-20 z-15">
