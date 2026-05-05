@@ -42,14 +42,17 @@ const NavBar = () => {
 
                 <div className='hidden md:flex items-center rounded-full p-1'>
                     {navLink.map((link, index) => {
-                        const isActive = pathname === link.href
+                        const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
                         return (
                             <Link 
                                 href={link.href} 
                                 key={index} 
-                                className={`flex items-center justify-center rounded-full px-4 py-2 transition-all duration-300 ${isActive ? 'bg-black/10 text-black' : 'hover:bg-black/5 text-[#1A1A1A]/80'}`}
+                                className={`relative flex items-center justify-center rounded-full px-4 py-2 transition-all duration-300 ${isActive ? 'bg-[#00000033] text-black' : 'hover:bg-black/5'}`}
                             >
                                 <span className='text-xs lg:text-base font-satoshi font-medium'>{link.title}</span>
+                                {/* {isActive && (
+                                    <span className='absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-black animate-scaleIn' />
+                                )} */}
                             </Link>
                         )
                     })}
@@ -57,7 +60,7 @@ const NavBar = () => {
 
                 <div className="flex items-center gap-2">
                     <Link href={`https://calendly.com/joyzen-system/15min?date=${formattedDate}`} target='_blank'>
-                        <button className='hidden  px-3 lg:px-6 md:flex gap-2 text-xs lg:text-base items-center justify-center py-1.5 lg:py-2 rounded-[2.625rem] border-[5.29px] border-[#FFFFFF0A] shadow-md font-satoshi font-medium bg-white hover:bg-[#F9F9F9] transition-colors'>
+                        <button className='hidden  px-3 lg:px-6 md:flex gap-2 text-xs lg:text-base items-center justify-center py-1.5 lg:py-2.5 rounded-[2.625rem] border border-white/10 backdrop-blur-xs shadow-md font-satoshi font-medium bg-white/10  hover:bg-[#F9F9F9] transition-colors'>
                             Book Clarity Call 
                             <span><Image src="/nav-icon.svg" alt="Icon" width={18} height={18} /></span> 
                         </button>
@@ -83,15 +86,18 @@ const NavBar = () => {
             {isMenuOpen && (
                 <div className="absolute top-full left-0 right-0 mt-4 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] md:hidden overflow-hidden flex flex-col p-2 border border-white/50">
                     {navLink.map((link, index) => {
-                        const isActive = pathname === link.href
+                        const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
                         return (
                             <Link 
                                 href={link.href} 
                                 key={index} 
                                 onClick={() => setIsMenuOpen(false)}
-                                className={`flex items-center rounded-xl px-4 py-3 transition-all duration-300 ${isActive ? 'bg-black/5 text-black font-semibold' : 'hover:bg-black/5 text-[#1A1A1A]/80'}`}
+                                className={`relative flex items-center rounded-xl px-4 py-3 transition-all duration-300 ${isActive ? 'bg-black/5 text-black' : 'hover:bg-black/5 text-[#1A1A1A]/80'}`}
                             >
-                                <span className='text-base font-satoshi font-medium'>{link.title}</span>
+                                {isActive && (
+                                    <span className='absolute left-1.5 top-1/2 -translate-y-1/2 w-1 h-5 rounded-full bg-black' />
+                                )}
+                                <span className={`text-base font-satoshi ${isActive ? 'font-semibold' : 'font-medium'}`}>{link.title}</span>
                             </Link>
                         )
                     })}

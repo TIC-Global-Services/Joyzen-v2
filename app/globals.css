@@ -12,6 +12,16 @@
   --font-sans: var(--font-satoshi);
   --font-mono: var(--font-satoshi);
   --font-epilogue: var(--font-epilogue);
+  --animate-scaleIn: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateX(-50%) scale(0);
+  }
+  to {
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -75,25 +75,25 @@ const ContactForm = () => {
     }
   };
 
-  const desktopInputClasses = "w-full px-8 py-5 rounded-full bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all";
-  const mobileInputClasses = "w-full px-6 py-4 rounded-full bg-white/50 border-[2px] border-[#FFFFFF70] shadow-[0_2px_5px_rgba(0,0,0,0.02),inset_0_1px_2px_rgba(255,255,255,0.9)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-[30px] transition-all";
+  const desktopInputClasses = "w-full px-8 py-5 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
+  const mobileInputClasses = "w-full px-6 py-4 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
 
   return (
     <section className="relative w-full py-20 min-h-svh lg:min-h-screen lg:px-24 flex items-center justify-center overflow-hidden">
 
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
         {/* Replaced heavy blur filters with radial-gradients on mobile */}
-        <div className="absolute top-[40%] left-[-20%] md:left-[0%] w-[50%] h-[50%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden" />
-        <div className="absolute top-[40%] left-[-20%] w-full h-[50%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.6)_0%,transparent_70%)]" />
+        <div className="absolute top-[40%] left-[-20%] md:left-[-20%] w-[50%] h-[50%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden animate-blob1" />
+        <div className="absolute top-[40%] left-[-20%] w-full h-[50%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.6)_0%,transparent_70%)] animate-blob1" />
 
-        <div className="absolute top-[60%] md:top-[80%] left-[20%] md:left-[0%] w-[70%] h-[30%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden" />
-        <div className="absolute top-[60%] left-[20%] w-full h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.5)_0%,transparent_70%)]" />
+        <div className="absolute top-[60%] md:top-[80%] left-[20%] md:left-[-10%] w-[70%] h-[30%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden animate-blob2" />
+        <div className="absolute top-[60%] left-[20%] w-full h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.5)_0%,transparent_70%)] animate-blob2" />
 
-        <div className="absolute top-[50%] -right-[10%] w-[50%] h-[60%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden" />
-        <div className="absolute top-[50%] -right-[10%] w-full h-[60%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.7)_0%,transparent_70%)]" />
+        <div className="absolute top-[60%] -right-[20%] w-[50%] h-[60%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden animate-blob3" />
+        <div className="absolute top-[50%] -right-[10%] w-full h-[60%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.7)_0%,transparent_70%)] animate-blob3" />
 
-        <div className="absolute bottom-0 left-[70%] w-[50%] h-[20%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden" />
-        <div className="absolute bottom-0 left-[70%] w-full h-[20%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.4)_0%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-[70%] w-[20%] h-[20%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden animate-blob1" />
+        <div className="absolute bottom-0 left-[70%] w-full h-[20%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.4)_0%,transparent_70%)] animate-blob1" />
       </div>
       <div className="absolute bottom-0 z-40 left-0 w-full h-[20%] bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
 
@@ -163,7 +163,7 @@ const ContactForm = () => {
                   },
                 })}
                 placeholder="Email Address"
-                className={`${desktopInputClasses} ${desktopErrors.email ? 'border-red-300' : 'border-white/40'}`}
+                className={`${desktopInputClasses} ${desktopErrors.email ? 'border-red-300' : 'border-white/30'}`}
               />
               {desktopErrors.email && <p className="text-red-500 text-sm mt-1">{desktopErrors.email.message}</p>}
             </div>
@@ -244,7 +244,7 @@ const ContactForm = () => {
                     e.preventDefault();
                   }
                 }}
-                className={`w-full px-8 py-12 rounded-3xl bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all ${desktopErrors.message ? 'border-red-300' : 'border-white/40'}`}
+                className={`py-8 min-h-[160px] w-full px-8 rounded-3xl bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all ${desktopErrors.message ? 'border-red-300' : 'border-white/40'}`}
               />
               {desktopErrors.message && <p className="text-red-500 text-sm mt-1 ">{desktopErrors.message.message}</p>}
             </div>
@@ -352,32 +352,14 @@ const ContactForm = () => {
             <div className="w-full ">
               <textarea
 
-                {...desktopRegister('message', {
+                {...mobileRegister('message', {
                   required: 'Message is required',
-                  maxLength: { value: 10, message: 'Message must not exceed 20 characters' },
-                  pattern: {
-                    value: /^[A-Za-z\s]+$/,
-                    message: 'Only letters allowed',
-                  },
+                  maxLength: { value: 1000, message: 'Message must not exceed 1000 characters' },
                 })}
                 placeholder="Message"
-                onKeyDown={(e) => {
-                  const allowedKeys = [
-                    "Backspace",
-                    "Delete",
-                    "ArrowLeft",
-                    "ArrowRight",
-                    "Tab",
-                    " "
-                  ];
-
-                  if (!/[a-zA-Z]/.test(e.key) && allowedKeys.includes(e.key)) {
-                    e.preventDefault();
-                  }
-                }}
-                className={`w-full px-8 py-12 rounded-3xl bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all ${desktopErrors.message ? 'border-red-300' : 'border-white/40'}`}
+                className={`w-full px-8 py-6 min-h-[140px] rounded-3xl bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] resize-none placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all ${mobileErrors.message ? 'border-red-300' : 'border-white/40'}`}
               />
-              {desktopErrors.message && <p className="text-red-500 text-sm mt-1 ">{desktopErrors.message.message}</p>}
+              {mobileErrors.message && <p className="text-red-500 text-xs mt-1 ">{mobileErrors.message.message}</p>}
             </div>
 
             <div className="mt-10 w-full flex justify-center">
@@ -394,6 +376,41 @@ const ContactForm = () => {
         </div>
       </div>
       <Toaster position="top-right" />
+      <style jsx>{`
+        textarea:focus {
+          outline: none;
+        }
+        textarea {
+          resize: none;
+        }
+        @keyframes blob1 {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(15vw, -10vh) scale(1.1); }
+          66% { transform: translate(-10vw, 15vh) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob2 {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(-15vw, 15vh) scale(0.9); }
+          66% { transform: translate(10vw, -10vh) scale(1.1); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob3 {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(20vw, 20vh) scale(1.1); }
+          66% { transform: translate(-15vw, -15vh) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob1 {
+          animation: blob1 20s infinite alternate ease-in-out;
+        }
+        .animate-blob2 {
+          animation: blob2 25s infinite alternate ease-in-out;
+        }
+        .animate-blob3 {
+          animation: blob3 30s infinite alternate ease-in-out;
+        }
+      `}</style>
     </section>
   )
 }

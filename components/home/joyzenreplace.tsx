@@ -8,12 +8,12 @@ const JoyzenReplace = () => {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        
+
         const container = containerRef.current;
         if (!container) return;
 
         const words = container.querySelectorAll('.word');
-        
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,
@@ -51,7 +51,7 @@ const JoyzenReplace = () => {
     return (
         <div className="relative py-24 px-4 md:py-32 w-full flex justify-center items-center font-satoshi min-h-screen">
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
-                {/* Replaced heavy blur filters with radial-gradients on mobile */}
+
                 <div className="absolute -bottom-[5%] -left-[40%] md:left-[-40%] w-[80%] h-[40%] bg-[#b4def7] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden" />
                 <div className="absolute -bottom-[5%] -left-[40%] w-[80%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.8)_0%,transparent_70%)]" />
 
@@ -61,7 +61,7 @@ const JoyzenReplace = () => {
                 <div className="absolute -bottom-[30%] right-[20%] md:right-[-50%] w-[80%] h-[30%] bg-[#f8e780] opacity-50 rounded-[100%] md:blur-[140px] md:block hidden" />
                 <div className="absolute -bottom-[30%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(248,231,128,0.4)_0%,transparent_70%)]" />
             </div>
-            
+
             <div ref={containerRef} className="text-center text-2xl md:text-3xl lg:text-[2.5rem] font-medium leading-[1.2] tracking-tight">
                 <p className="mb-10 md:mb-12">
                     {splitText("Joyzen", "text-[#EF8F60]")} {splitText("replaces fragmented care with a continuous system")}
@@ -72,7 +72,7 @@ const JoyzenReplace = () => {
                     <span className="md:hidden"> </span>
                     {splitText("together.")}
                 </p>
-                
+
                 <p className="mb-10 md:mb-12">
                     {splitText("Online or in clinic - it's the same person")}
                     <br className="hidden md:block" />

@@ -21,10 +21,10 @@ const Hero = ({
   backgroundImage, 
   backgroundVideo,
   className = "",
-  children 
+  children
 }: HeroProps) => {
   const pathname = usePathname()
-  const isHome = pathname === '/'
+  const isHome = pathname === '/' || pathname === '/who-it-is-for/' || pathname === '/how-we-work/' || pathname === '/contact/'
   const textColorClass = isHome ? 'text-black' : 'text-white'
 
   return (
