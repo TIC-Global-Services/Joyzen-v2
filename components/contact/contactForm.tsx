@@ -1,0 +1,401 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import flowerimg from '@/assets/contact/flower_bg.png';
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
+
+interface FormData {
+  name: string;
+  email: string;
+  mobile: string;
+  city: string;
+  message: string;
+}
+
+const ContactForm = () => {
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   city: ''
+  // });
+
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
+  const {
+    register: desktopRegister,
+    handleSubmit: desktopHandleSubmit,
+    watch: desktopWatch,
+    reset: desktopReset,
+    formState: { errors: desktopErrors, isSubmitting: desktopIsSubmitting },
+  } = useForm<FormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      mobile: '',
+      city: '',
+      message: ''
+    },
+  });
+  const {
+    register: mobileRegister,
+    handleSubmit: mobileHandleSubmit,
+    watch: mobileWatch,
+    reset: mobileReset,
+    formState: { errors: mobileErrors, isSubmitting: mobileIsSubmitting },
+  } = useForm<FormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      mobile: '',
+      city: '',
+      message: ''
+    },
+  });
+  const onSubmit = async (data: FormData, resetFn: () => void) => {
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycby87HMGWfarg3kDA0GSkJlkvpYr9V2FYORfnGPo5gxdjLX7htl0R9nzWlevaCGI4oI/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          type: "earlycircle",
+          name: data.name,
+          email: data.email,
+          mobile: data.mobile,
+          city: data.city,
+        }),
+      });
+      toast.success("Congragulation you joined the early circle 🎉");
+      resetFn();
+    } catch (error) {
+      toast.error("Error submitting form");
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  const desktopInputClasses = "w-full px-8 py-5 rounded-full bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all";
+  const mobileInputClasses = "w-full px-6 py-4 rounded-full bg-white/50 border-[2px] border-[#FFFFFF70] shadow-[0_2px_5px_rgba(0,0,0,0.02),inset_0_1px_2px_rgba(255,255,255,0.9)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-[30px] transition-all";
+
+  return (
+    <section className="relative w-full py-20 min-h-svh lg:min-h-screen lg:px-24 flex items-center justify-center overflow-hidden">
+
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
+        {/* Replaced heavy blur filters with radial-gradients on mobile */}
+        <div className="absolute top-[40%] left-[-20%] md:left-[0%] w-[50%] h-[50%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden" />
+        <div className="absolute top-[40%] left-[-20%] w-full h-[50%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.6)_0%,transparent_70%)]" />
+
+        <div className="absolute top-[60%] md:top-[80%] left-[20%] md:left-[0%] w-[70%] h-[30%] bg-[#ddc4df] rounded-full md:blur-[140px] md:block hidden" />
+        <div className="absolute top-[60%] left-[20%] w-full h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.5)_0%,transparent_70%)]" />
+
+        <div className="absolute top-[50%] -right-[10%] w-[50%] h-[60%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden" />
+        <div className="absolute top-[50%] -right-[10%] w-full h-[60%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.7)_0%,transparent_70%)]" />
+
+        <div className="absolute bottom-0 left-[70%] w-[50%] h-[20%] bg-[#b4def7] rounded-full md:blur-[140px] md:block hidden" />
+        <div className="absolute bottom-0 left-[70%] w-full h-[20%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.4)_0%,transparent_70%)]" />
+      </div>
+      <div className="absolute bottom-0 z-40 left-0 w-full h-[20%] bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
+
+      {/* ---------- DESKTOP LAYOUT ---------- */}
+      <div className="hidden lg:flex w-full flex-row items-center justify-between gap-20 relative z-10">
+
+
+        <div className="w-1/2 flex justify-end translate-x-[30%] relative">
+          <div className="relative w-full h-screen">
+            <Image
+              src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
+              alt="Joyzen decorative flowers"
+              fill
+              className="object-contain object-bottom scale-[1.9] origin-bottom-right pointer-events-none"
+            />
+          </div>
+        </div>
+
+
+        <div className="w-[50%] flex flex-col items-start max-w-xl">
+          <h2 className="text-[2.5rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-3 uppercase">
+            We’re here to support your health journey.
+          </h2>
+
+
+          <form onSubmit={desktopHandleSubmit((data) => onSubmit(data, desktopReset))} className="w-full flex flex-col gap-5" noValidate>
+            <div className="w-full">
+              <input
+                type="text"
+                {...desktopRegister('name', {
+                  required: 'Name is required',
+                  minLength: { value: 3, message: 'Name must be at least 3 characters' },
+                  maxLength: { value: 50, message: 'Name must not exceed 50 characters' },
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message: 'Only letters allowed',
+                  },
+                })}
+                onKeyDown={(e) => {
+                  const allowedKeys = [
+                    "Backspace",
+                    "Delete",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "Tab",
+                    " "
+                  ];
+
+                  if (!/[a-zA-Z]/.test(e.key) && allowedKeys.includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                placeholder="Name"
+                className={`${desktopInputClasses} ${desktopErrors.name ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.name && <p className="text-red-500 text-sm mt-1">{desktopErrors.name.message}</p>}
+            </div>
+
+            <div className="w-full">
+              <input
+                type="email"
+                {...desktopRegister('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Invalid email address',
+                  },
+                })}
+                placeholder="Email Address"
+                className={`${desktopInputClasses} ${desktopErrors.email ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.email && <p className="text-red-500 text-sm mt-1">{desktopErrors.email.message}</p>}
+            </div>
+
+            <div className="w-full">
+              <input
+                type="tel"
+                {...desktopRegister('mobile', {
+                  required: 'Mobile number is required',
+                  minLength: { value: 10, message: 'Mobile number must be at least 10 digits' },
+                  maxLength: { value: 10, message: 'Mobile number must not exceed 10 digits' },
+                  pattern: {
+                    value: /^[0-9]{10}$/,
+                    message: 'Invalid phone number',
+                  },
+                })}
+                maxLength={10}
+                minLength={10}
+                placeholder="Phone Number"
+                className={`${desktopInputClasses} ${desktopErrors.mobile ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.mobile && <p className="text-red-500 text-sm mt-1">{desktopErrors.mobile.message}</p>}
+            </div>
+
+            <div className="w-full ">
+              <input
+                type="text"
+                {...desktopRegister('city', {
+                  required: 'City is required',
+                  maxLength: { value: 10, message: 'City must not exceed 20 characters' },
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message: 'Only letters allowed',
+                  },
+                })}
+                placeholder="City"
+                onKeyDown={(e) => {
+                  const allowedKeys = [
+                    "Backspace",
+                    "Delete",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "Tab",
+                    " "
+                  ];
+
+                  if (!/[a-zA-Z]/.test(e.key) && allowedKeys.includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                className={`${desktopInputClasses} ${desktopErrors.city ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.city && <p className="text-red-500 text-sm mt-1 ">{desktopErrors.city.message}</p>}
+            </div>
+            <div className="w-full ">
+              <textarea
+
+                {...desktopRegister('message', {
+                  required: 'Message is required',
+                  maxLength: { value: 10, message: 'Message must not exceed 20 characters' },
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message: 'Only letters allowed',
+                  },
+                })}
+                placeholder="Message"
+                onKeyDown={(e) => {
+                  const allowedKeys = [
+                    "Backspace",
+                    "Delete",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "Tab",
+                    " "
+                  ];
+
+                  if (!/[a-zA-Z]/.test(e.key) && allowedKeys.includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                className={`w-full px-8 py-12 rounded-3xl bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all ${desktopErrors.message ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.message && <p className="text-red-500 text-sm mt-1 ">{desktopErrors.message.message}</p>}
+            </div>
+
+
+
+            <div className="mt-4">
+              <button
+                type='submit'
+                disabled={desktopIsSubmitting}
+                className="px-8 py-[16px] rounded-full bg-white/90 border border-white shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#1a1a1a] font-satoshi text-base font-medium hover:bg-gray-50 hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all flex items-center justify-center cursor-pointer min-w-[180px]"
+              >
+                {desktopIsSubmitting ? 'Submitting...' : 'Submit'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {/* ---------- MOBILE LAYOUT ---------- */}
+      <div className="flex lg:hidden w-full flex-col items-center justify-start relative z-10 pt-20 pb-10 min-h-screen px-4 sm:px-12">
+
+
+        <div className="absolute inset-x-0 bottom-0 h-[50vh] w-full z-0 overflow-hidden pointer-events-none">
+          <Image
+            src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
+            alt="Joyzen decorative flowers"
+            fill
+            className="object-cover  opacity-30 scale-[1.1]"
+          />
+        </div>
+
+
+        <div className="w-full flex flex-col items-center text-center px-5 relative z-10 pt-4">
+          <h2 className="text-2xl sm:text-3xl font-sans font-medium tracking-tighter text-[#1a1a1a] leading-[1.1] mb-3 uppercase">
+            We’re here to support your health journey.
+          </h2>
+          <form onSubmit={mobileHandleSubmit((data) => onSubmit(data, mobileReset))} className="w-full flex flex-col gap-3 ">
+            <div className="w-full">
+              <input
+                type="text"
+                {...mobileRegister('name', {
+                  required: 'Name is required',
+                  minLength: { value: 3, message: 'Name must be at least 3 characters' },
+                  maxLength: { value: 50, message: 'Name must not exceed 50 characters' },
+                })}
+                placeholder="Name"
+                minLength={3}
+                maxLength={50}
+                className={`${mobileInputClasses} ${mobileErrors.name ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {mobileErrors.name && (
+                <p className="text-red-500 text-xs mt-1">
+                  {mobileErrors.name.message}
+                </p>
+              )}
+            </div>
+
+            <div className="w-full">
+              <input
+                type="email"
+                {...mobileRegister('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Invalid email address',
+                  },
+                })}
+                placeholder="Email Address"
+                className={`${mobileInputClasses} ${mobileErrors.email ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {mobileErrors.email && <p className="text-red-500 text-sm mt-1">{mobileErrors.email.message}</p>}
+            </div>
+
+            <div className="w-full">
+              <input
+                type="tel"
+                minLength={10}
+                maxLength={10}
+                {...mobileRegister('mobile', {
+                  required: 'Mobile number is required',
+                  pattern: {
+                    value: /^[+]?[0-9\s\-()]{7,15}$/,
+                    message: 'Invalid phone number',
+                  },
+                })}
+                placeholder="Phone Number"
+                className={`${mobileInputClasses} ${mobileErrors.mobile ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {mobileErrors.mobile && <p className="text-red-500 text-sm mt-1">{mobileErrors.mobile.message}</p>}
+            </div>
+
+            <div className="w-full">
+              <input
+                type="text"
+                placeholder='City'
+                {...mobileRegister('city', {
+                  required: 'City is required',
+                  maxLength: { value: 20, message: 'City must not exceed 20 characters' },
+                })}
+                className={`${mobileInputClasses} ${mobileErrors.city ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {mobileErrors.city && <p className="text-red-500 text-sm mt-1">{mobileErrors.city.message}</p>}
+            </div>
+            <div className="w-full ">
+              <textarea
+
+                {...desktopRegister('message', {
+                  required: 'Message is required',
+                  maxLength: { value: 10, message: 'Message must not exceed 20 characters' },
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message: 'Only letters allowed',
+                  },
+                })}
+                placeholder="Message"
+                onKeyDown={(e) => {
+                  const allowedKeys = [
+                    "Backspace",
+                    "Delete",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "Tab",
+                    " "
+                  ];
+
+                  if (!/[a-zA-Z]/.test(e.key) && allowedKeys.includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                className={`w-full px-8 py-12 rounded-3xl bg-white/40 border-[5.29px] border-[#FFFFFF03] shadow-[0_8px_10px_rgba(0,0,0,0.04),inset_0_2px_5px_rgba(255,255,255,0.8)] text-[#6E6E6E] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/10 backdrop-blur-[20px] transition-all ${desktopErrors.message ? 'border-red-300' : 'border-white/40'}`}
+              />
+              {desktopErrors.message && <p className="text-red-500 text-sm mt-1 ">{desktopErrors.message.message}</p>}
+            </div>
+
+            <div className="mt-10 w-full flex justify-center">
+              <button
+                type="submit"
+                disabled={mobileIsSubmitting}
+                className="px-6 py-[10px] rounded-[40px] bg-white/40 border-[1px] border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-[#1a1a1a] font-satoshi text-[11px] font-medium hover:bg-white/60 backdrop-blur-md transition-all flex items-center justify-center cursor-pointer min-w-[140px]"
+              >
+                {mobileIsSubmitting ? 'Joining...' : 'Join Now'}
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <Toaster position="top-right" />
+    </section>
+  )
+}
+
+export default ContactForm;
