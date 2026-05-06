@@ -83,7 +83,7 @@ const WhatYouGet = () => {
     };
 
     const BenefitCard = ({ item, isEndRow, isMobile }: { item: BenefitItem, isEndRow?: boolean, isMobile?: boolean }) => (
-        <div className={`relative w-full ${!isMobile ? item.width : ''} ${item.isLarge ? 'h-[380px] md:h-[35dvh]' : 'h-[380px] md:h-[30dvh]'} rounded-2xl overflow-hidden group shadow-sm ${isEndRow ? 'self-end' : 'self-start'}`}>
+        <div className={`relative w-full ${isMobile ? item.width : 'h-full'} ${item.isLarge ? 'h-[380px] md:h-[40dvh]' : 'h-[380px] md:h-[30dvh]'} rounded-2xl overflow-hidden group shadow-sm ${isEndRow ? 'self-end' : 'self-start'}`}>
             <Image
                 src={item.image}
                 alt={item.title}
@@ -146,19 +146,30 @@ const WhatYouGet = () => {
                 </div>
 
                 {/* Desktop View */}
-                <div className="hidden md:flex flex-col gap-2">
+                <div className="hidden md:flex flex-col gap-4 relative">
                     {/* Top Row */}
-                    <div className="flex flex-col md:flex-row gap-2 h-full items-center justify-center">
+                    <div className="grid grid-cols-[45fr_32fr_23fr] gap-4 h-full">
                         {topRow.map((item, idx) => (
                             <BenefitCard key={`top-${idx}`} item={item} />
                         ))}
                     </div>
 
-
-                    <div className="flex flex-col md:flex-row gap-2 items-start">
+                    <div className="grid grid-cols-[23fr_32fr_45fr] gap-4 items-end">
                         {bottomRow.map((item, idx) => (
                             <BenefitCard key={`bottom-${idx}`} item={item} isEndRow />
                         ))}
+                    </div>
+
+                    {/* Center Logo Overlay */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center pointer-events-none">
+                        <div className="relative w-full h-full p-5">
+                            <Image 
+                                src="/logo_purple.svg" 
+                                alt="Joyzen Logo" 
+                                fill 
+                                className="object-contain p-4" 
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

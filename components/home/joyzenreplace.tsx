@@ -50,15 +50,15 @@ const JoyzenReplace = () => {
 
     return (
         <div className="relative py-24 px-4 md:py-32 w-full flex justify-center items-center font-satoshi min-h-screen">
-            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu liquid-gradient" style={{ transform: 'translateZ(0)' }}>
 
-                <div className="absolute -bottom-[5%] -left-[40%] md:left-[-40%] w-[80%] h-[40%] bg-[#b4def7] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden" />
+                <div className="absolute -bottom-[5%] -left-[40%] md:left-[-40%] w-[80%] h-[40%] bg-[#b4def7] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden liquid-gradient" />
                 <div className="absolute -bottom-[5%] -left-[40%] w-[80%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.8)_0%,transparent_70%)]" />
 
-                <div className="absolute -bottom-[0%] -right-[30%] w-[70%] h-[30%] bg-[#ddc4df] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden" />
+                <div className="absolute -bottom-[0%] -right-[30%] w-[70%] h-[30%] bg-[#ddc4df] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden liquid-gradient" />
                 <div className="absolute -bottom-[00%] -right-[30%] w-[70%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.8)_0%,transparent_70%)]" />
 
-                <div className="absolute -bottom-[30%] right-[20%] md:right-[-50%] w-[80%] h-[30%] bg-[#f8e780] opacity-50 rounded-[100%] md:blur-[140px] md:block hidden" />
+                <div className="absolute -bottom-[30%] right-[20%] md:right-[-50%] w-[80%] h-[30%] bg-[#f8e780] opacity-50 rounded-[100%] md:blur-[140px] md:block hidden liquid-gradient" />
                 <div className="absolute -bottom-[30%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(248,231,128,0.4)_0%,transparent_70%)]" />
             </div>
 
