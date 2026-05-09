@@ -76,7 +76,7 @@ const ContactForm = () => {
   const mobileInputClasses = "w-full px-6 py-3 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
 
   return (
-    <section className="relative w-full pt-6 lg:pt-10 pb-10 lg:pb-14 min-h-[60vh] lg:min-h-[70vh] lg:px-24 flex items-start lg:items-center justify-center overflow-hidden">
+    <section className="relative w-full pt-6 lg:pt-10 pb-10 lg:pb-14 min-h-[100vh] lg:min-h-[100dvh] lg:px-24 flex items-start lg:items-start justify-center overflow-hidden">
 
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
         {/* Replaced heavy blur filters with radial-gradients on mobile */}
@@ -95,23 +95,22 @@ const ContactForm = () => {
       <div className="absolute bottom-0 z-40 left-0 w-full h-[20%] bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
 
       {/* ---------- DESKTOP LAYOUT ---------- */}
-      <div className="hidden lg:flex w-full flex-row items-center justify-between gap-20 relative z-10">
+      <div className="hidden lg:block absolute inset-0 z-10">
 
-
-        <div className="w-[55%] lg:w-[58%] xl:w-[62%] flex justify-start relative">
-          <div className="relative w-full h-screen ml-[15%] lg:ml-[25%] xl:ml-[30%]">
-            <Image
-              src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
-              alt="Joyzen decorative flowers"
-              fill
-              className="object-contain object-bottom pointer-events-none scale-[2] origin-bottom-right"
-            />
-          </div>
+        {/* Image Side - independently positioned at bottom left */}
+        <div className="absolute bottom-0 left-[-5vw] w-[45vw] xl:w-[40vw] h-[75vh] xl:h-[80vh]">
+          <Image
+            src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
+            alt="Joyzen decorative flowers"
+            fill
+            sizes="45vw"
+            className="object-contain object-bottom pointer-events-none scale-[1.75] origin-bottom-left"
+          />
         </div>
 
-
-        <div className="w-[48%] lg:w-[48%] xl:w-[50%] flex flex-col items-start max-w-xl">
-          <h2 className="text-[2.5rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-3 uppercase">
+        {/* Form Side - independently positioned on the right */}
+        <div className="absolute top-36 right-8 xl:right-16 w-[578px] flex flex-col items-start">
+          <h2 className="text-[2rem] xl:text-[2.25rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-3 uppercase leading-[1.1]">
             We’re here to support your health journey.
           </h2>
 
