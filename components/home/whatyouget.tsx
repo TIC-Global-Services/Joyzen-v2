@@ -83,19 +83,20 @@ const WhatYouGet = () => {
     };
 
     const BenefitCard = ({ item, isEndRow, isMobile }: { item: BenefitItem, isEndRow?: boolean, isMobile?: boolean }) => (
-        <div className={`relative w-full ${isMobile ? item.width : 'h-full'} ${item.isLarge ? 'h-[380px] md:h-[40dvh]' : 'h-[380px] md:h-[30dvh]'} rounded-2xl overflow-hidden group shadow-sm ${isEndRow ? 'self-end' : 'self-start'}`}>
+        <div className={`relative w-full ${isMobile ? item.width : 'h-full'} ${isMobile ? 'h-[300px]' : item.isLarge ? 'md:h-[40dvh]' : 'md:h-[30dvh]'} rounded-2xl overflow-hidden group shadow-sm ${isEndRow ? 'self-end' : 'self-start'}`}>
             <Image
                 src={item.image}
                 alt={item.title}
                 fill
+                sizes="(max-width: 768px) 200px, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
-            <div className={`absolute bottom-0 left-0 ${item.isLarge ? 'p-8 md:p-10' : 'p-6'} text-white`}>
-                <h3 className={`${item.isLarge ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-1 md:mb-2`}>
+            <div className={`absolute inset-0 bg-gradient-to-t ${isMobile ? 'from-white/90 via-white/40 to-transparent' : 'from-black/70 via-transparent to-transparent'} opacity-80`} />
+            <div className={`absolute bottom-0 left-0 ${item.isLarge ? 'p-8 md:p-10' : 'p-6'} ${isMobile ? 'text-black' : 'text-white'}`}>
+                <h3 className={`${item.isLarge ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-1 md:mb-2 leading-[20px]`}>
                     {item.title}
                 </h3>
-                <p className={`${item.isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm'} opacity-90 ${item.maxW} leading-relaxed`}>
+                <p className={`${item.isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm'} opacity-90 ${item.maxW} leading-[18px]`}>
                     {item.description}
                 </p>
             </div>
@@ -103,7 +104,7 @@ const WhatYouGet = () => {
     );
 
     return (
-        <section className="relative py-24 px-4 md:px-10 overflow-hidden font-satoshi bg-white/10 backdrop-blur-[2px]">
+        <section className="relative py-14 md:py-24 px-4 md:px-10 overflow-hidden font-satoshi bg-white/10 backdrop-blur-[2px]">
             {/* Background Gradients */}
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
                 <div className="absolute -bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[40%] bg-[#b4def7] opacity-80 rounded-[100%] md:blur-[80px] md:block hidden" />
@@ -117,7 +118,7 @@ const WhatYouGet = () => {
             </div>
 
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-2xl md:text-[2.5rem] font-medium text-center mb-16 leading-tight tracking-tight text-[#1A1A1A]">
+                <h2 className="text-2xl md:text-[2.5rem] font-medium text-center mb-16 leading-[44px] tracking-tight text-[#1A1A1A]">
                     Not online only, Not clinic only. With <span className="text-[#EF8F60]">Joyzen</span>, you get:
                 </h2>
 
@@ -129,7 +130,7 @@ const WhatYouGet = () => {
                         className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar scroll-smooth"
                     >
                         {benefitItems.map((item, idx) => (
-                            <div key={`mobile-${idx}`} className="min-w-[85vw] snap-center">
+                            <div key={`mobile-${idx}`} className="min-w-[200px] w-[200px] h-[300px] snap-center">
                                 <BenefitCard item={item} isMobile />
                             </div>
                         ))}

@@ -24,6 +24,55 @@
   }
 }
 
+/* ===================================================================
+   GLASS PILL INDICATOR — Sliding liquid glass bubble
+   Follows the active nav link with smooth transitions
+   =================================================================== */
+.glass-pill-indicator {
+  background:
+    linear-gradient(155deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 52%,
+      rgba(248, 252, 255, 0.015) 100%
+    ),
+    radial-gradient(circle at 84% 84%, rgba(176, 208, 255, 0.09) 0%, rgba(176, 208, 255, 0) 46%);
+  backdrop-filter: blur(14px) saturate(180%) contrast(1.10) brightness(1.02);
+  -webkit-backdrop-filter: blur(14px) saturate(180%) contrast(1.10) brightness(1.02);
+  border: 0;
+  box-shadow:
+    0 8px 18px rgba(78, 96, 122, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(20, 32, 50, 0.08);
+}
+
+/* Glass button — nav pills and CTA buttons */
+.glass-button {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.045) 52%,
+      rgba(255, 255, 255, 0.015) 100%
+    ),
+    radial-gradient(circle at 84% 84%, rgba(176, 208, 255, 0.09) 0%, rgba(176, 208, 255, 0) 46%),
+    radial-gradient(circle at 12% 8%, rgba(255, 230, 200, 0.05) 0%, rgba(255, 230, 200, 0) 42%);
+  border: 0;
+  box-shadow:
+    0 10px 22px rgba(78, 96, 122, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(20, 32, 50, 0.08);
+}
+
+.glass-button:hover {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 52%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    radial-gradient(circle at 84% 84%, rgba(176, 208, 255, 0.12) 0%, rgba(176, 208, 255, 0) 46%),
+    radial-gradient(circle at 12% 8%, rgba(255, 230, 200, 0.08) 0%, rgba(255, 230, 200, 0) 42%);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;

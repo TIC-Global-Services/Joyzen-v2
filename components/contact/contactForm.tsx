@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import flowerimg from '@/assets/contact/flower_bg.png';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -28,7 +27,6 @@ const ContactForm = () => {
   const {
     register: desktopRegister,
     handleSubmit: desktopHandleSubmit,
-    watch: desktopWatch,
     reset: desktopReset,
     formState: { errors: desktopErrors, isSubmitting: desktopIsSubmitting },
   } = useForm<FormData>({
@@ -43,7 +41,6 @@ const ContactForm = () => {
   const {
     register: mobileRegister,
     handleSubmit: mobileHandleSubmit,
-    watch: mobileWatch,
     reset: mobileReset,
     formState: { errors: mobileErrors, isSubmitting: mobileIsSubmitting },
   } = useForm<FormData>({
@@ -57,7 +54,7 @@ const ContactForm = () => {
   });
   const onSubmit = async (data: FormData, resetFn: () => void) => {
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycby87HMGWfarg3kDA0GSkJlkvpYr9V2FYORfnGPo5gxdjLX7htl0R9nzWlevaCGI4oI/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycby87HMGWfarg3kDA0GSkJlkvpYr9V2FYORfnGPo5gxdjLX7htl0R9nzWlevaCGI4oI/exec", {
         method: "POST",
         body: JSON.stringify({
           type: "earlycircle",
@@ -75,11 +72,11 @@ const ContactForm = () => {
     }
   };
 
-  const desktopInputClasses = "w-full px-8 py-5 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
-  const mobileInputClasses = "w-full px-6 py-4 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
+  const desktopInputClasses = "w-full px-8 py-3 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-base focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
+  const mobileInputClasses = "w-full px-6 py-3 rounded-full bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-[#1a1a1a] placeholder-[#6E6E6E] font-epilogue text-[14px] focus:outline-none focus:ring-2 focus:ring-[#136136]/20 backdrop-blur-xl transition-all";
 
   return (
-    <section className="relative w-full py-20 min-h-svh lg:min-h-screen lg:px-24 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full pt-6 lg:pt-10 pb-10 lg:pb-14 min-h-[60vh] lg:min-h-[70vh] lg:px-24 flex items-start lg:items-center justify-center overflow-hidden">
 
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
         {/* Replaced heavy blur filters with radial-gradients on mobile */}
@@ -101,25 +98,25 @@ const ContactForm = () => {
       <div className="hidden lg:flex w-full flex-row items-center justify-between gap-20 relative z-10">
 
 
-        <div className="w-1/2 flex justify-end translate-x-[30%] relative">
-          <div className="relative w-full h-screen">
+        <div className="w-[55%] lg:w-[58%] xl:w-[62%] flex justify-start relative">
+          <div className="relative w-full h-screen ml-[15%] lg:ml-[25%] xl:ml-[30%]">
             <Image
               src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
               alt="Joyzen decorative flowers"
               fill
-              className="object-contain object-bottom scale-[1.9] origin-bottom-right pointer-events-none"
+              className="object-contain object-bottom pointer-events-none scale-[2] origin-bottom-right"
             />
           </div>
         </div>
 
 
-        <div className="w-[50%] flex flex-col items-start max-w-xl">
+        <div className="w-[48%] lg:w-[48%] xl:w-[50%] flex flex-col items-start max-w-xl">
           <h2 className="text-[2.5rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-3 uppercase">
             We’re here to support your health journey.
           </h2>
 
 
-          <form onSubmit={desktopHandleSubmit((data) => onSubmit(data, desktopReset))} className="w-full flex flex-col gap-5" noValidate>
+          <form onSubmit={desktopHandleSubmit((data) => onSubmit(data, desktopReset))} className="w-full flex flex-col gap-3" noValidate>
             <div className="w-full">
               <input
                 type="text"
@@ -265,16 +262,19 @@ const ContactForm = () => {
       </div>
 
       {/* ---------- MOBILE LAYOUT ---------- */}
-      <div className="flex lg:hidden w-full flex-col items-center justify-start relative z-10 pt-20 pb-10 min-h-screen px-4 sm:px-12">
+      <div className="flex lg:hidden w-full flex-col items-center justify-start relative z-10 pt-20 pb-10 min-h-screen px-4 sm:px-12 overflow-hidden">
 
-
-        <div className="absolute inset-x-0 bottom-0 h-[50vh] w-full z-0 overflow-hidden pointer-events-none">
+        {/* Flower background behind form */}
+        <div className="absolute inset-0 w-full h-full z-0">
           <Image
             src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
             alt="Joyzen decorative flowers"
             fill
-            className="object-cover  opacity-30 scale-[1.1]"
+            className="object-cover object-[center_60%] opacity-60 scale-75 pointer-events-none"
           />
+          {/* Gradient overlays for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
         </div>
 
 
