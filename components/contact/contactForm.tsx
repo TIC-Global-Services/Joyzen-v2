@@ -98,13 +98,13 @@ const ContactForm = () => {
       <div className="hidden lg:block absolute inset-0 z-10">
 
         {/* Image Side - independently positioned at bottom left */}
-        <div className="absolute bottom-0 left-[-5vw] w-[45vw] xl:w-[40vw] h-[75vh] xl:h-[80vh]">
+        <div className="absolute bottom-0 left-[-18vw] w-[45vw] xl:w-[40vw] h-[75vh] xl:h-[80vh]">
           <Image
             src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
             alt="Joyzen decorative flowers"
             fill
             sizes="45vw"
-            className="object-contain object-bottom pointer-events-none scale-[1.75] origin-bottom-left"
+            className="object-contain object-bottom pointer-events-none scale-[2.2] origin-bottom-left"
           />
         </div>
 
