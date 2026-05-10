@@ -45,7 +45,7 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
         if (centerImageRef.current) {
             gsap.set(centerImageRef.current, { scale: 1.3 });
             tl.to(centerImageRef.current, {
-                scale: 1,
+                scale: 2,
                 ease: "sine.out",
                 duration: 1
             }, 0);

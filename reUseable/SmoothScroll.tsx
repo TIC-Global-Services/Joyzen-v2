@@ -1,63 +1,52 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
 
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const rafRef = useRef<number>(0);
+interface SmoothScrollProps {
+  children: ReactNode;
+}
+
+export default function SmoothScroll({ children }: SmoothScrollProps) {
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Reset scroll position on mount to prevent stuck states
-    window.scrollTo(0, 0);
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Force-reset body overflow — GSAP ScrollTrigger sometimes leaves it hidden
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual"; // Manual prevents browser from fighting Lenis
+    }
 
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
-      infinite: false,
-    } as any);
-
-    // Prevent Lenis from stopping when GSAP ScrollTrigger sets overflow hidden
-    const observer = new MutationObserver(() => {
-      if (document.body.style.overflow === "hidden") {
-        document.body.style.overflow = "";
-      }
-      if (document.documentElement.style.overflow === "hidden") {
-        document.documentElement.style.overflow = "";
-      }
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["style"],
-      subtree: true,
+      syncTouch: false,
     });
 
-    // Recalculate dimensions on resize to prevent layout issues
-    const handleResize = () => lenis.resize();
-    window.addEventListener("resize", handleResize);
+    lenisRef.current = lenis;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      rafRef.current = requestAnimationFrame(raf);
-    }
+    // Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
 
-    rafRef.current = requestAnimationFrame(raf);
+    // Add Lenis's requestAnimationFrame (raf) to GSAP's ticker
+    // This ensures smooth synchronization between GSAP animations and Lenis scrolling
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    // Disable GSAP's lag smoothing to avoid jumps during scrolling
+    gsap.ticker.lagSmoothing(0);
+
+    // Auto-refresh ScrollTrigger on window load/resize
+    ScrollTrigger.refresh();
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-      lenis.destroy();
+      lenisRef.current?.destroy();
+      gsap.ticker.remove(lenis.raf);
+      ScrollTrigger.killAll();
     };
   }, []);
 

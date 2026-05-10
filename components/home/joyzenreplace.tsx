@@ -81,18 +81,21 @@ const JoyzenReplace = () => {
                 </p>
 
                 <p className="mb-10 md:mb-12">
-                    {splitText("Tracking your progress.", "text-black")} {splitText("Adjusting your treatment.", "text-[#7B7B7B]")}
+                    {splitText("Tracking your progress.", "text-black")} {splitText("Adjusting your treatment.")}
                     <br className="hidden md:block" />
                     <span className="md:hidden"> </span>
-                    {splitText("Moving you forward.", "text-[#7B7B7B]")}
+                    {splitText("Moving you forward.")}
                 </p>
 
                 <p>
-                    {splitText("Joyzen connects you to the right doctor", "text-[#7B7B7B]")}
+                    {splitText("Joyzen connects you to the right doctor")}
                     <br className="hidden md:block" />
                     <span className="md:hidden"> </span>
-                    {splitText("and keeps your care continuous across every step.", "text-[#7B7B7B]")}
+                    {splitText("and keeps your care continuous across every step.")}
                 </p>
+                <button className="mt-8 md:mt-12 text-[14px] md:text-[16px] bg-white border font-sans border-[#FFFFFF0A] px-8 py-3 rounded-full font-medium shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95">
+                        Start Your Application
+                </button>
             </div>
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent"></div>
         </div>
