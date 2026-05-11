@@ -97,8 +97,9 @@ const ContactForm = () => {
       {/* ---------- DESKTOP LAYOUT ---------- */}
       <div className="hidden lg:block absolute inset-0 z-10">
 
+
         {/* Image Side - independently positioned at bottom left */}
-        <div className="absolute bottom-0 left-[-18vw] w-[45vw] xl:w-[40vw] h-[75vh] xl:h-[80vh]">
+        <div className="absolute bottom-0 left-[-18vw] lg:left-[-24vw] xl:left-[-18vw] w-[45vw] xl:w-[40vw] h-[75vh] xl:h-[80vh] max-w-[650px] max-h-[700px]">
           <Image
             src="https://ik.imagekit.io/gyg6yfnd5/flower_bg.png?updatedAt=1774521082214"
             alt="Joyzen decorative flowers"
