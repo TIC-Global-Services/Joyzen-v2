@@ -23,6 +23,7 @@ export interface OverlapScrollProps {
 
 const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, data }) => {
     const containerRef = useRef<HTMLElement>(null)
+    const centerImageRef = useRef<HTMLDivElement>(null)
     const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
     useGSAP(() => {
@@ -36,9 +37,19 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
             }
         });
 
-        const duration = 2;  
+        const duration = 2;
         const isMobile = window.innerWidth < 768;
-        const staggerDelay = isMobile ? 0.8 : 0.4; 
+        const staggerDelay = isMobile ? 0.8 : 0.4;
+
+        // Center image: starts larger, scales down as scrolling begins
+        if (centerImageRef.current) {
+            gsap.set(centerImageRef.current, { scale: 1.3 });
+            tl.to(centerImageRef.current, {
+                scale: 2,
+                ease: "sine.out",
+                duration: 1
+            }, 0);
+        }
 
         cardsRef.current.forEach((card, index) => {
             if (!card) return;
@@ -46,15 +57,15 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
 
             tl.fromTo(card,
                 {
-                    x: "100vw",       
-                    y: 400,            
-                    rotation: 15,     
-                    opacity: 1,        
-                    scale: 0.2         
+                    x: "100vw",
+                    y: 400,
+                    rotation: 15,
+                    opacity: 1,
+                    scale: 0.2
                 },
                 {
-                    x: "-100vw",      
-                    ease: "none",      
+                    x: "-100vw",
+                    ease: "none",
                     duration: duration
                 },
                 startTimeline
@@ -63,18 +74,18 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
             tl.to(card, {
                 y: 0,
                 rotation: 0,
-                opacity: 1,            
-                scale: 1,              
-                ease: "sine.out",      
+                opacity: 1,
+                scale: 1,
+                ease: "sine.out",
                 duration: duration / 2
             }, startTimeline);
 
             tl.to(card, {
-                y: 400,                
-                rotation: -15,         
-                opacity: 1,            
-                scale: 0.2,            
-                ease: "sine.in",       
+                y: 400,
+                rotation: -15,
+                opacity: 1,
+                scale: 0.2,
+                ease: "sine.in",
                 duration: duration / 2
             }, startTimeline + duration / 2);
         });
@@ -96,7 +107,7 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
                     
                     {/* Fixed Center Image behind cards */}
                     {centerImage && (
-                        <div className="absolute inset-0 m-auto w-[65%] h-[65%] md:w-[75%] md:h-[75%] rounded-3xl overflow-hidden shadow-sm z-0">
+                        <div ref={centerImageRef} className="absolute inset-0 m-auto w-[65%] h-[65%] md:w-[75%] md:h-[75%] rounded-3xl overflow-hidden shadow-sm z-0">
                             <Image
                                 src={centerImage}
                                 alt="Background Visual"

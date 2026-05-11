@@ -28,11 +28,12 @@ const Future = () => {
                     </h2>
                 </div>
 
-                <div className="relative w-32 h-32 md:w-[15dvw] md:h-[30dvh] rounded-full overflow-hidden mb-12 border-4 border-white shadow-xl">
+                <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-square rounded-full overflow-hidden mb-12 border-4 border-white shadow-xl">
                     <Image
                         src={founder}
                         alt="Founder"
                         fill
+                        sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 224px"
                         className="object-cover object-top"
                     />
                 </div>

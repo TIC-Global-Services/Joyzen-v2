@@ -1,31 +1,52 @@
 "use client";
 
-import { useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
 
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+interface SmoothScrollProps {
+  children: ReactNode;
+}
+
+export default function SmoothScroll({ children }: SmoothScrollProps) {
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t:any) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    } as any);
+    gsap.registerPlugin(ScrollTrigger);
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual"; // Manual prevents browser from fighting Lenis
     }
 
-    requestAnimationFrame(raf);
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 1,
+      syncTouch: false,
+    });
+
+    lenisRef.current = lenis;
+
+    // Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // Add Lenis's requestAnimationFrame (raf) to GSAP's ticker
+    // This ensures smooth synchronization between GSAP animations and Lenis scrolling
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    // Disable GSAP's lag smoothing to avoid jumps during scrolling
+    gsap.ticker.lagSmoothing(0);
+
+    // Auto-refresh ScrollTrigger on window load/resize
+    ScrollTrigger.refresh();
 
     return () => {
-      lenis.destroy();
+      lenisRef.current?.destroy();
+      gsap.ticker.remove(lenis.raf);
+      ScrollTrigger.killAll();
     };
   }, []);
 

@@ -12,9 +12,10 @@ interface BenefitItem {
     title: string;
     description: string;
     image: StaticImageData;
-    width: string;
+    height: string;
     isLarge?: boolean;
     maxW?: string;
+    className?: string;
 }
 
 const WhatYouGet = () => {
@@ -22,11 +23,12 @@ const WhatYouGet = () => {
     const scrollRef = React.useRef<HTMLDivElement>(null);
 
     const benefitItems: BenefitItem[] = [
+
         {
             title: "Always Accessible",
             description: "Speak to your doctor anytime, not just during appointment.",
             image: alwaysaccesible,
-            width: "md:w-[45%]",
+            height: "h-[250px] md:h-[220px] lg:h-[359px]",
             isLarge: true,
             maxW: "max-w-[320px]"
         },
@@ -34,42 +36,40 @@ const WhatYouGet = () => {
             title: "Same doctor, Everywhere",
             description: "Online or in-clinic, your care stays with one person.",
             image: samedoctor,
-            width: "md:w-[32%]",
+            height: "h-[200px] md:h-[180px] lg:h-[200px]",
             maxW: "max-w-[220px]"
         },
         {
             title: "Continuously Guided",
             description: "Your progress is tracked, adjusted, and supported every day.",
             image: continuesguide,
-            width: "md:w-[23%]",
+            height: "h-[200px] md:h-[180px] lg:h-[200px]",
             maxW: "max-w-[180px]"
         },
         {
             title: "A doctor who actually knows you",
             description: "Not new opinions every time, real understanding.",
             image: adoctor,
-            width: "md:w-[23%]",
+            height: "h-[200px] md:h-[180px] lg:h-[200px]",
             maxW: "max-w-[180px]"
         },
         {
             title: "Lifestyle, not just prescriptions",
             description: "Sleep, stress, nutrition, fitness, all part of treatment.",
             image: lifestyle,
-            width: "md:w-[32%]",
+            height: "h-[200px] md:h-[180px] lg:h-[200px]",
             maxW: "max-w-[220px]"
         },
         {
             title: "Follow-ups that don't stop",
             description: "Care continues between visits, automatically.",
             image: followup,
-            width: "md:w-[45%]",
+            height: "h-[250px] md:h-[220px] lg:h-[360px]",
             isLarge: true,
-            maxW: "max-w-[320px]"
+            maxW: "max-w-[320px]",
+            className: "-mt-10 md:-mt-10 lg:-mt-40"
         }
     ];
-
-    const topRow = benefitItems.slice(0, 3);
-    const bottomRow = benefitItems.slice(3);
 
     const handleScroll = () => {
         if (scrollRef.current) {
@@ -82,20 +82,21 @@ const WhatYouGet = () => {
         }
     };
 
-    const BenefitCard = ({ item, isEndRow, isMobile }: { item: BenefitItem, isEndRow?: boolean, isMobile?: boolean }) => (
-        <div className={`relative w-full ${isMobile ? item.width : 'h-full'} ${item.isLarge ? 'h-[380px] md:h-[40dvh]' : 'h-[380px] md:h-[30dvh]'} rounded-2xl overflow-hidden group shadow-sm ${isEndRow ? 'self-end' : 'self-start'}`}>
+    const BenefitCard = ({ item, isMobile, className }: { item: BenefitItem, isMobile?: boolean, className?: string }) => (
+        <div className={`relative w-full ${isMobile ? 'h-[300px]' : item.height} rounded-2xl overflow-hidden group shadow-sm flex-shrink-0 ${className || ''}`}>
             <Image
                 src={item.image}
                 alt={item.title}
                 fill
+                sizes="(max-width: 768px) 200px, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
-            <div className={`absolute bottom-0 left-0 ${item.isLarge ? 'p-8 md:p-10' : 'p-6'} text-white`}>
-                <h3 className={`${item.isLarge ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-1 md:mb-2`}>
+            <div className={`absolute inset-0 bg-gradient-to-t ${isMobile ? 'from-white/90 via-white/40 to-transparent' : 'from-black/70 via-transparent to-transparent'} opacity-80`} />
+            <div className={`absolute bottom-0 left-0 ${item.isLarge ? 'p-8 md:p-10' : 'p-6'} ${isMobile ? 'text-black' : 'text-white'}`}>
+                <h3 className={`${item.isLarge ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-1 md:mb-2 leading-[20px]`}>
                     {item.title}
                 </h3>
-                <p className={`${item.isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm'} opacity-90 ${item.maxW} leading-relaxed`}>
+                <p className={`${item.isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm'} opacity-90 ${item.maxW} leading-[18px]`}>
                     {item.description}
                 </p>
             </div>
@@ -103,7 +104,7 @@ const WhatYouGet = () => {
     );
 
     return (
-        <section className="relative py-24 px-4 md:px-10 overflow-hidden font-satoshi bg-white/10 backdrop-blur-[2px]">
+        <section className="relative py-14 md:py-24 px-4 md:px-10 overflow-hidden font-satoshi bg-white/10 backdrop-blur-[2px]">
             {/* Background Gradients */}
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
                 <div className="absolute -bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[40%] bg-[#b4def7] opacity-80 rounded-[100%] md:blur-[80px] md:block hidden" />
@@ -117,7 +118,7 @@ const WhatYouGet = () => {
             </div>
 
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-2xl md:text-[2.5rem] font-medium text-center mb-16 leading-tight tracking-tight text-[#1A1A1A]">
+                <h2 className="text-2xl md:text-[2.5rem] font-medium text-center mb-16 leading-[44px] tracking-tight text-[#1A1A1A]">
                     Not online only, Not clinic only. With <span className="text-[#EF8F60]">Joyzen</span>, you get:
                 </h2>
 
@@ -129,7 +130,7 @@ const WhatYouGet = () => {
                         className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar scroll-smooth"
                     >
                         {benefitItems.map((item, idx) => (
-                            <div key={`mobile-${idx}`} className="min-w-[85vw] snap-center">
+                            <div key={`mobile-${idx}`} className="min-w-[200px] w-[200px] h-[300px] snap-center">
                                 <BenefitCard item={item} isMobile />
                             </div>
                         ))}
@@ -145,31 +146,40 @@ const WhatYouGet = () => {
                     </div>
                 </div>
 
-                {/* Desktop View */}
-                <div className="hidden md:flex flex-col gap-4 relative">
+                {/* Desktop View — CSS Grid (like joyzen.tsx) for proper responsiveness */}
+                <div className="hidden md:grid md:grid-cols-12 md:gap-5 relative">
                     {/* Top Row */}
-                    <div className="grid grid-cols-[45fr_32fr_23fr] gap-4 h-full">
-                        {topRow.map((item, idx) => (
-                            <BenefitCard key={`top-${idx}`} item={item} />
-                        ))}
+                    <div className="md:col-span-5 md:col-start-1 md:row-start-1">
+                        <BenefitCard item={benefitItems[0]} />
                     </div>
-
-                    <div className="grid grid-cols-[23fr_32fr_45fr] gap-4 items-end">
-                        {bottomRow.map((item, idx) => (
-                            <BenefitCard key={`bottom-${idx}`} item={item} isEndRow />
-                        ))}
+                    <div className="md:col-span-4 md:col-start-6 md:row-start-1">
+                        <BenefitCard item={benefitItems[1]} />
+                    </div>
+                    <div className="md:col-span-3 md:col-start-10 md:row-start-1">
+                        <BenefitCard item={benefitItems[2]} />
                     </div>
 
                     {/* Center Logo Overlay */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center pointer-events-none">
-                        <div className="relative w-full h-full p-5">
-                            <Image 
-                                src="/logo_purple.svg" 
-                                alt="Joyzen Logo" 
-                                fill 
-                                className="object-contain p-4" 
+                    <div className="absolute top-[40%] md:top-[50%] lg:top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-20 h-20 md:w-20 md:h-20 lg:w-28 lg:h-28 flex items-center justify-center pointer-events-none">
+                        <div className="relative w-full h-full flex items-center justify-center p-5">
+                            <Image
+                                src="/logo_purple.svg"
+                                alt="Joyzen Logo"
+                                fill
+                                className="object-contain p-4"
                             />
                         </div>
+                    </div>
+
+                    {/* Bottom Row */}
+                    <div className="md:col-span-3 md:col-start-1 md:row-start-2">
+                        <BenefitCard item={benefitItems[3]} />
+                    </div>
+                    <div className="md:col-span-4 md:col-start-4 md:row-start-2">
+                        <BenefitCard item={benefitItems[4]} />
+                    </div>
+                    <div className="md:col-span-5 md:col-start-8 md:row-start-2">
+                        <BenefitCard item={benefitItems[5]} className={benefitItems[5].className} />
                     </div>
                 </div>
             </div>

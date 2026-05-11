@@ -1,5 +1,3 @@
-import React from 'react'
-
 const JoyzenOffers = () => {
     return (
         <section className="relative w-full py-24 md:py-40 flex flex-col items-center justify-center overflow-hidden font-satoshi bg-white min-h-screen">
@@ -10,7 +8,7 @@ const JoyzenOffers = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                <p className="text-2xl font-sans md:text-3xl lg:text-4xl text-[#1A1A1A] leading-[1.4] md:leading-[1.4] font-medium text-pretty mb-12">
+                <p className="text-2xl font-sans md:text-3xl lg:text-4xl text-[#1A1A1A] leading-[1.2] md:leading-[1.2] font-medium text-pretty mb-12">
                     Joyzen offers structured care plans tailored to every stage of life, from hormonal balance and prevention to conception support and long-term reproductive health, ensuring each patient receives a{" "}
                     <span className="text-[#EF8F60]">
                         Personalized Care, Monitoring & Tracking, Consultations & Follow-ups, weekly follow-ups, Support & Guidance, and At-Home Care.
@@ -21,9 +19,6 @@ const JoyzenOffers = () => {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button className="bg-white border font-sans border-[#FFFFFF0A] px-8 py-3 rounded-full font-medium shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95">
                         Start Your Application
-                    </button>
-                    <button className="bg-[#00000024] font-sans text-[#1A1A1A] px-8 py-3 rounded-full font-medium transition-all hover:bg-[#D4D4D4] hover:scale-105 active:scale-95">
-                        Buy a plan
                     </button>
                 </div>
             </div>

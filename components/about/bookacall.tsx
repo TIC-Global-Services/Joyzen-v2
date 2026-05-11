@@ -32,16 +32,16 @@ const BookACall = () => {
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-normal text-[#1A1A1A] tracking-tight">
                 Book a clarity call
               </h2>
-              <p className="max-w-xl text-base md:text-xl leading-[1.2] font-normal">
+              <p className="max-w-xl text-base md:text-xl leading-[1.1] font-normal">
                 If you would like to understand your reproductive health better or learn how Joyzen can support your journey, you can schedule a conversation with our care team.
               </p>
             </div>
 
             <div className="flex justify-center md:justify-start w-full md:w-auto">
               <Link href={`https://calendly.com/joyzen-system/15min?date=${formattedDate}`} target='_blank'>
-                <button className='px-6 flex gap-2 text-sm lg:text-base items-center justify-center py-2.5 rounded-[2.625rem] border-[5.29px] border-[#FFFFFF0A] shadow-md font-epilogue font-medium bg-white/80 hover:bg-white transition-colors'>
-                  Book Clarity Call 
-                  <span><Image src="/nav-icon.svg" alt="Icon" width={18} height={18} /></span> 
+                <button className='px-6 flex gap-2 text-sm lg:text-base items-center justify-center py-2.5 rounded-[2.625rem] border-[5.29px] border-[#FFFFFF0A] shadow-md font-epilogue font-medium bg-white/80 hover:bg-white transition-colors leading-none'>
+                  Book Clarity Call
+                  <span className="flex items-center"><Image src="/nav-icon.svg" alt="Icon" width={18} height={18} className="block" /></span>
                 </button>
               </Link>
             </div>
