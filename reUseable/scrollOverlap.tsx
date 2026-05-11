@@ -41,11 +41,11 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
         const isMobile = window.innerWidth < 768;
         const staggerDelay = isMobile ? 0.8 : 0.4;
 
-        // Center image: starts larger, scales down as scrolling begins
+        // Center image: starts zoomed in, scales down to normal as cards enter
         if (centerImageRef.current) {
-            gsap.set(centerImageRef.current, { scale: 1.3 });
+            gsap.set(centerImageRef.current, { scale: 1.5 });
             tl.to(centerImageRef.current, {
-                scale: 2,
+                scale: 1,
                 ease: "sine.out",
                 duration: 1
             }, 0);
@@ -53,7 +53,7 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
 
         cardsRef.current.forEach((card, index) => {
             if (!card) return;
-            const startTimeline = index * staggerDelay;
+            const startTimeline = 1 + index * staggerDelay;
 
             tl.fromTo(card,
                 {
@@ -93,7 +93,7 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
     }, { scope: containerRef, dependencies: [data] });
 
     return (
-        <section ref={containerRef} className="relative w-full h-dvh lg:h-screen overflow-hidden pt-10 flex flex-col items-center justify-center pb-10 bg-[#F9F9F7] z-10">
+        <section ref={containerRef} className="relative w-full h-dvh lg:h-screen pt-10 flex flex-col items-center justify-center pb-10 bg-[#F9F9F7] z-10" style={{ overflow: "clip" }}>
           
             <div className="text-center z-20 w-full px-4 shrink-0 mb-8 md:mb-12">
                 <h2 className="text-[32px] md:text-[44px] lg:text-[2.75rem] text-[#1A1A1A] leading-[1.1] font-medium tracking-tight font-sans">

@@ -193,9 +193,7 @@ export default function TextReveal() {
           start: "top top",
           end: "bottom bottom",
           pin: stageRef.current,
-          pinSpacing: false,
-          scrub: isMobile ? 0.45 : 0.85,
-          anticipatePin: 1,
+          scrub: true,
           invalidateOnRefresh: true,
           onRefreshInit: setCardsFromLogoOrigin,
         },
@@ -383,11 +381,11 @@ export default function TextReveal() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative h-[700vh] overflow-hidden bg-[#fbf8f2] gradient-pastel md:h-[620vh]"
+      className="relative h-[700vh] bg-[#fbf8f2] gradient-pastel md:h-[620vh]"
     >
       <div
         ref={stageRef}
-        className="flex min-h-[100svh] items-start overflow-hidden md:min-h-screen md:items-center"
+        className="flex min-h-[100svh] items-start md:min-h-screen md:items-center"
       >
         <div className="absolute inset-0 bg-[#fbf8f2]" />
         <div className="absolute inset-0 gradient-pastel opacity-50 md:opacity-80" />

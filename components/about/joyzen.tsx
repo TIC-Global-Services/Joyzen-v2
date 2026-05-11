@@ -142,9 +142,7 @@ const Joyzen = () => {
           start: "top top",
           end: "bottom bottom",
           pin: stageRef.current,
-          pinSpacing: false,
-          scrub: isMobile ? 0.45 : 0.85,
-          anticipatePin: 1,
+          scrub: true,
           invalidateOnRefresh: true,
           onRefreshInit: setCardsFromLogoOrigin,
         },
@@ -230,8 +228,8 @@ const Joyzen = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-[350vh] md:h-[250vh] overflow-hidden bg-white font-satoshi">
-      <div ref={stageRef} className="flex min-h-[100svh] items-center overflow-hidden w-full relative">
+    <section ref={sectionRef} className="relative h-[350vh] md:h-[250vh] bg-white font-satoshi">
+      <div ref={stageRef} className="flex min-h-[100svh] items-center w-full relative">
         
         {/* Background Soft Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>

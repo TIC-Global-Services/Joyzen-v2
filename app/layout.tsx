@@ -54,7 +54,7 @@ export default function RootLayout({
       lang="en"
       className={`${satoshi.variable} ${epilogue.variable}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
         <SmoothScroll>
           <Preloader/>
           <Navbar/>
