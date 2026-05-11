@@ -1,6 +1,6 @@
 "use client"
 import OverlapScroll from '@/reUseable/scrollOverlap'
-import centerVisual from '@/assets/howwework/where_we_headed.jpg' // Use your real image here
+import centerVisual from '@/assets/howwework/women-with-doctor-cosmetology-studio.png' // Use your real image here
 
 const careData = [
   {

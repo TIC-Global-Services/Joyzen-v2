@@ -2,9 +2,14 @@ const JoyzenOffers = () => {
     return (
         <section className="relative w-full py-24 md:py-40 flex flex-col items-center justify-center overflow-hidden font-satoshi bg-white min-h-screen">
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
-                <div className="absolute bottom-[10%] left-[-10%] w-[40%] h-[40%] bg-[#b4def7] opacity-90 blur-[100px] rounded-full" />
-                <div className="absolute top-[50%] right-[-10%] w-[40%] h-[40%] bg-[#ddc4df] opacity-90 blur-[100px] rounded-full" />
-                <div className="absolute bottom-[-10%] right-[0%] w-[100%] h-[20%] bg-[#EF8F60] opacity-90 blur-[100px] rounded-full" />
+                <div className="absolute bottom-[10%] left-[-10%] w-[40%] h-[40%] bg-[#b4def7] opacity-90 rounded-full md:blur-[100px] md:block hidden" />
+                <div className="absolute bottom-[10%] left-[-10%] w-[40%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.8)_0%,transparent_70%)]" />
+
+                <div className="absolute top-[50%] right-[-10%] w-[40%] h-[40%] bg-[#ddc4df] opacity-90 rounded-full md:blur-[100px] md:block hidden" />
+                <div className="absolute top-[50%] right-[-10%] w-[40%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(221,196,223,0.8)_0%,transparent_70%)]" />
+
+                <div className="absolute bottom-[-10%] right-[0%] w-[100%] h-[20%] bg-[#EF8F60] opacity-90 rounded-full md:blur-[100px] md:block hidden" />
+                <div className="absolute bottom-[-10%] right-[0%] w-[100%] h-[20%] md:hidden block bg-[radial-gradient(circle,rgba(239,143,96,0.5)_0%,transparent_70%)]" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">

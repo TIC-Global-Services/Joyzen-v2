@@ -65,7 +65,9 @@ const Hero = ({
           </div>
         </div>
       </div>
-      <div className=" md:hidden absolute inset-x-0 bottom-0 h-full z-11 bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
+      {!isOnlyHome && (
+        <div className="absolute inset-x-0 top-0 h-full z-11 bg-gradient-to-b from-black/50 via-black/25 to-transparent"></div>
+      )}
     </div>
   )
 }

@@ -36,7 +36,7 @@ const NavBar = () => {
     const navLinksRef = useRef<(HTMLAnchorElement | null)[]>([])
 
     const isHome = pathname === '/' || pathname === '/contact/'
-    const activeTextColor = isHome ? 'text-black' : 'text-black'
+    const activeTextColor = isHome ? 'text-black' : 'text-white'
     const inactiveTextColor = isHome ? 'text-black' : 'text-white [text-shadow:_0_1px_6px_rgba(0,0,0,0.35)]'
     const hoverBg = isHome ? 'hover:bg-black/5' : 'hover:bg-white/10'
 
