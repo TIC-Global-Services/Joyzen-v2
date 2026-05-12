@@ -23,6 +23,7 @@ export interface OverlapScrollProps {
 
 const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, data }) => {
     const containerRef = useRef<HTMLElement>(null)
+    const cardContainerRef = useRef<HTMLDivElement>(null)
     const centerImageRef = useRef<HTMLDivElement>(null)
     const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
@@ -41,19 +42,39 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
         const isMobile = window.innerWidth < 768;
         const staggerDelay = isMobile ? 0.8 : 0.4;
 
-        // Center image: starts zoomed in, scales down to normal as cards enter
+        // Phase 1: Landscape card spans width below title, shrinks to card size
+        if (cardContainerRef.current) {
+            const screenW = window.innerWidth;
+            const multiplier = isMobile ? 0.92 : 0.85;
+            const cardW = isMobile ? 280 : 380;
+            const cardH = isMobile ? 380 : 480;
+
+            gsap.set(cardContainerRef.current, {
+                width: screenW * multiplier,
+                height: screenW * 0.46 * multiplier,
+            });
+            tl.to(cardContainerRef.current, {
+                width: cardW,
+                height: cardH,
+                ease: "sine.inOut",
+                duration: 1
+            }, 0);
+        }
+
+        // Phase 2: Then scale down the image inside
         if (centerImageRef.current) {
             gsap.set(centerImageRef.current, { scale: 1.5 });
             tl.to(centerImageRef.current, {
                 scale: 1,
                 ease: "sine.out",
-                duration: 1
-            }, 0);
+                duration: 0.5
+            }, 1);
         }
 
+        // Phase 3: Then cards slide in
         cardsRef.current.forEach((card, index) => {
             if (!card) return;
-            const startTimeline = 1 + index * staggerDelay;
+            const startTimeline = 1.5 + index * staggerDelay;
 
             tl.fromTo(card,
                 {
@@ -103,7 +124,7 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
 
             <div className="w-full px-4 relative flex justify-center items-center flex-1 min-h-0 z-10">
                 
-                <div className="relative w-[280px] md:w-[320px] lg:w-[380px] h-[380px] md:h-[420px] lg:h-[480px]">
+                <div ref={cardContainerRef} className="relative w-[280px] md:w-[320px] lg:w-[380px] h-[380px] md:h-[420px] lg:h-[480px]">
                     
                     {/* Fixed Center Image behind cards */}
                     {centerImage && (
