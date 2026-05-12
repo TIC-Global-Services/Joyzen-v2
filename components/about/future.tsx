@@ -20,15 +20,15 @@ const Future = () => {
 
             <div className="relative z-10  px-6 flex flex-col items-center text-center">
                 <div className="space-y-4 mb-12">
-                    <span className="text-2xl md:text-3xl font-medium text-[#1A1A1A]">
+                    <span className="text-2xl md:text-6xl font-medium text-[#1A1A1A]">
                         The Future
                     </span>
-                    <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-medium tracking-tight text-[#1A1A1A] leading-tight">
+                    <h2 className="text-4xl md:text-6xl lg:text-[6rem] font-medium tracking-[-5px] text-[#1A1A1A] leading-tight">
                         We are building
                     </h2>
                 </div>
 
-                <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-square rounded-full overflow-hidden mb-12 border-4 border-white shadow-xl">
+                <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-square rounded-full overflow-hidden mb-12 shadow-xl">
                     <Image
                         src={founder}
                         alt="Founder"
@@ -38,7 +38,7 @@ const Future = () => {
                     />
                 </div>
 
-                <p className="md:max-w-6xl text-lg md:text-xl lg:text-[1.35rem] text-[#1A1A1A] leading-[1.2] md:leading-[1.6] font-medium font-sans">
+                <p className="md:max-w-4xl text-lg md:text-xl lg:text-[1.5rem] text-[#1A1A1A] leading-[1] tracking-tight md:leading-[1.2] font-medium font-sans">
                     We are entering a new era of human life. Where living longer is becoming possible and how we build our health from the beginning defines how long and how well we live Yet healthcare is still built for illness, not for life. Joyzen exists to change that. We are building a continuous care system for reproductive health, human performance, and longevity, where every individual is guided, supported, and understood over time. Because the future of humanity will not be defined by treatment, but by how well we take care of life itself.
                 </p>
             </div>

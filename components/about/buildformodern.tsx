@@ -48,7 +48,7 @@ const Buildformodern = () => {
         ));
     };
     return (
-        <div className="relative py-24 px-4 md:py-32 w-full flex justify-center items-center font-satoshi min-h-screen">
+        <div className="relative pt-16 pb-32 px-4 md:pt-20 md:pb-40 w-full flex justify-center items-center font-satoshi min-h-screen">
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
                 {/* Replaced heavy blur filters with radial-gradients on mobile */}
                 <div className="absolute -bottom-[5%] -left-[40%] md:left-[-40%] w-[80%] h-[20%] bg-[#EF8F60] opacity-100 rounded-[100%] md:blur-[100px] md:block hidden" />
@@ -79,7 +79,7 @@ const Buildformodern = () => {
                     <span className="md:hidden"> </span>
                     {splitText("The system should too")}
                 </p>
-                <button className="bg-white border font-sans border-[#FFFFFF0A] px-8 py-3 rounded-full font-medium tracking-tight shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95">
+                <button className="bg-white border font-sans border-[#FFFFFF0A] px-8 py-3 rounded-full font-medium tracking-tight shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95 mt-8 md:mt-10">
                         Start Your Application
                     </button>
             </div>

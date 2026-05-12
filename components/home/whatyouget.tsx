@@ -91,7 +91,7 @@ const WhatYouGet = () => {
                 sizes="(max-width: 768px) 200px, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className={`absolute inset-0 bg-gradient-to-t ${isMobile ? 'from-white/90 via-white/40 to-transparent' : 'from-black/70 via-transparent to-transparent'} opacity-80`} />
+            <div className={`absolute inset-0 bg-gradient-to-t ${isMobile ? 'from-white/90 via-white/40 to-transparent' : 'from-black/90 via-transparent to-transparent'} opacity-80`} />
             <div className={`absolute bottom-0 left-0 ${item.isLarge ? 'p-8 md:p-10' : 'p-6'} ${isMobile ? 'text-black' : 'text-white'}`}>
                 <h3 className={`${item.isLarge ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-1 md:mb-2 leading-[20px]`}>
                     {item.title}

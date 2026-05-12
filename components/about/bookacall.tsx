@@ -16,7 +16,7 @@ const BookACall = () => {
       </div>
 
       <div className="relative z-10 w-full md:max-w-7xl">
-        <div className="bg-white/60 backdrop-blur-md border border-white/80 rounded-[2.5rem] p-8 md:p-16 shadow-xl shadow-purple-200/20 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
+        <div className="bg-white/90 backdrop-blur-md border border-black/2.5 rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
           {/* Mobile Logo Background - Centered behind text */}
           <div className="absolute md:hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-50 opacity-50 pointer-events-none z-0">
             <Image
@@ -32,7 +32,7 @@ const BookACall = () => {
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-normal text-[#1A1A1A] tracking-tight">
                 Book a clarity call
               </h2>
-              <p className="max-w-xl text-base md:text-xl leading-[1.1] font-normal">
+              <p className="max-w-xl text-base md:text-xl leading-[1.1] tracking-tight font-normal">
                 If you would like to understand your reproductive health better or learn how Joyzen can support your journey, you can schedule a conversation with our care team.
               </p>
             </div>

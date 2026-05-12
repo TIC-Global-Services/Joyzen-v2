@@ -93,7 +93,7 @@ const JoyzenReplace = () => {
                     <span className="md:hidden"> </span>
                     {splitText("and keeps your care continuous across every step.")}
                 </p>
-                <button className="mt-8 md:mt-12 text-[14px] md:text-[16px] bg-white border font-sans border-[#FFFFFF0A] px-8 py-3 rounded-full font-medium shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95">
+                <button className="mt-8 md:mt-12 text-[14px] md:text-[16px] bg-white border font-sans border-[#FFFFFF0A] tracking-tight px-8 py-3 rounded-full font-medium shadow-sm transition-all hover:shadow-md hover:scale-105 active:scale-95">
                         Start Your Application
                 </button>
             </div>

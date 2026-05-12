@@ -33,7 +33,7 @@ const Care = () => {
                     <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-sans font-medium tracking-tight text-[#1A1A1A] leading-[44px]">
                         <span className="text-[#036132]">Care</span>, Reimagined Around You
                     </h2>
-                    <p className="max-w-2xl mx-auto text-sm md:text-2xl font-epilogue leading-[24px] font-medium">
+                    <p className="max-w-2xl mx-auto text-sm md:text-2xl font-epilogue leading-tight font-medium">
                         A new standard in reproductive care – thoughtfully designed to be continuous, deeply personal, and centered entirely around you.
                     </p>
                 </div>

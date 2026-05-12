@@ -42,12 +42,12 @@ const FEATURES = [
 ];
 
 const DESKTOP_SLOT_CLASSES = [
-  "md:col-start-1 md:col-span-4 md:row-start-1",
-  "md:col-start-5 md:col-span-4 md:row-start-1",
-  "md:col-start-9 md:col-span-4 md:row-start-1",
-  "md:col-start-1 md:col-span-4 md:row-start-2 md:row-span-2",
-  "md:col-start-5 md:col-span-4 md:row-start-3",
-  "md:col-start-9 md:col-span-4 md:row-start-2 md:row-span-2",
+  "md:col-start-1 md:row-start-1",
+  "md:col-start-2 md:row-start-1",
+  "md:col-start-3 md:row-start-1",
+  "md:col-start-1 md:row-start-2",
+  "md:col-start-2 md:row-start-2",
+  "md:col-start-3 md:row-start-2",
 ] as const;
 
 const Joyzen = () => {
@@ -229,7 +229,7 @@ const Joyzen = () => {
 
   return (
     <section ref={sectionRef} className="relative h-[350vh] md:h-[250vh] bg-white font-satoshi">
-      <div ref={stageRef} className="flex min-h-[100svh] items-center w-full relative">
+      <div ref={stageRef} className="flex h-[100vh] items-center w-full relative">
         
         {/* Background Soft Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
@@ -245,7 +245,7 @@ const Joyzen = () => {
           <div className="absolute -bottom-[20%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(3,97,50,0.3)_0%,transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 mx-auto flex h-[100svh] md:h-screen w-full max-w-[1280px] items-center px-4 sm:px-6 md:px-10 justify-center">
+        <div className="relative z-10 mx-auto flex h-[100svh] md:h-screen w-full max-w-[1280px] items-center px-4 sm:px-6 lg:px-14 justify-center overflow-hidden">
           
           <div ref={logoRef} className="absolute inset-0 z-20 flex justify-center items-center pointer-events-none">
             <div className="relative w-[150px] sm:w-[180px] md:w-[220px] h-[60px] sm:h-[80px] md:h-[100px]">
@@ -254,7 +254,7 @@ const Joyzen = () => {
           </div>
 
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center">
-            <div className="pointer-events-auto w-full px-4 sm:px-6 grid grid-cols-1 grid-rows-1 md:grid-cols-12 md:grid-rows-[minmax(250px,_1fr)_116px_minmax(235px,_1fr)] md:gap-x-5 md:gap-y-5 md:px-10">
+            <div className="pointer-events-auto w-full px-4 sm:px-6 grid grid-cols-1 grid-rows-1 md:grid-cols-3 md:grid-rows-[280px_280px] md:gap-4 lg:grid-rows-[300px_300px] lg:gap-5 xl:grid-cols-3 xl:grid-rows-[340px_340px] xl:gap-5 lg:px-0">
               {FEATURES.map((feature, idx) => (
                 <div
                   key={idx}
@@ -262,7 +262,7 @@ const Joyzen = () => {
                     cardsRef.current[idx] = el;
                   }}
                   style={{ zIndex: FEATURES.length - idx }}
-                  className={`col-start-1 row-start-1 mx-auto w-full max-w-[24rem] md:mx-0 md:w-auto md:max-w-none shadow-xl h-[350px] sm:h-[380px] md:h-auto ${DESKTOP_SLOT_CLASSES[idx]} ${
+                  className={`col-start-1 row-start-1 mx-auto w-full max-w-[24rem] md:mx-0 md:w-auto md:max-w-none shadow-xl h-[350px] sm:h-[380px] ${idx === 1 ? 'md:h-[220px] md:self-start lg:h-[250px] xl:h-[280px]' : idx === 4 ? 'md:h-[220px] md:self-end lg:h-[250px] xl:h-[280px]' : 'md:h-[280px] lg:h-[300px] xl:h-[340px]'} ${DESKTOP_SLOT_CLASSES[idx]} ${
                     feature.type === "card"
                       ? "group bg-white/40 backdrop-blur-md border border-[#EDEDED] rounded-xl sm:rounded-[1.5rem] md:rounded-[1.5rem] p-6 md:p-8 text-left flex flex-col justify-end transition-shadow duration-300 hover:shadow-2xl"
                       : "relative rounded-xl sm:rounded-[1.5rem] md:rounded-[1.5rem] overflow-hidden group transition-shadow duration-300 hover:shadow-2xl"
@@ -270,10 +270,10 @@ const Joyzen = () => {
                 >
                   {feature.type === "card" ? (
                     <>
-                      <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-medium text-[#1A1A1A] mb-3 md:mb-4 leading-[1.1]">
+                      <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-medium text-[#1A1A1A] mb-3 md:mb-4 leading-[1.1] tracking-tight">
                         {feature.title}
                       </h3>
-                      <p className="text-[#555555] text-sm md:text-base leading-[1.2] tracking-tight font-normal">
+                      <p className="text-sm md:text-base leading-[1.2] tracking-[-1px] font-normal">
                         {feature.description}
                       </p>
                     </>
@@ -292,8 +292,8 @@ const Joyzen = () => {
           </div>
 
         </div>
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-20"></div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-20"></div>
     </section>
   );
 };
