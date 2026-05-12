@@ -10,13 +10,13 @@ const BookACall = () => {
     <section className="relative w-full py-24 px-6 md:py-32 flex flex-col items-center justify-center overflow-hidden bg-white">
       {/* Background Soft Gradients */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
-        <div className="absolute md:bottom-[10%] bottom-[10%] left-[-10%] w-[50%] md:w-[40%] h-[40%] bg-[#b4def7] opacity-90 md:blur-[100px] blur-[20px] rounded-full" />
+        <div className="absolute md:bottom-[-5%] bottom-[10%] left-[-15%] w-[50%] md:w-[40%] h-[40%] bg-[#b4def7] opacity-50 md:blur-[120px] blur-[20px] rounded-full" />
         {/* <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] bg-[#f8e780] opacity-90 blur-[100px] rounded-full" /> */}
-        <div className="absolute md:bottom-[-10%] bottom-[10%] md:right-[0%] right-[0%] md:w-[40%] w-[50%] h-[40%] bg-[#ddc4df] opacity-90 md:blur-[100px] blur-[20px] rounded-full" />
+        <div className="absolute md:bottom-[-15%] bottom-[10%] md:right-[-10%] right-[0%] md:w-[40%] w-[50%] h-[40%] bg-[#ddc4df] opacity-50 md:blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 w-full md:max-w-7xl">
-        <div className="bg-white/90 backdrop-blur-md border border-black/2.5 rounded-[2.5rem] p-8 md:p-16 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
+        <div className="glass-card rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
           {/* Mobile Logo Background - Centered behind text */}
           <div className="absolute md:hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-50 opacity-50 pointer-events-none z-0">
             <Image

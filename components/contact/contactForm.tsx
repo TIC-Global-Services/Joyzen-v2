@@ -252,7 +252,7 @@ const ContactForm = () => {
               <button
                 type='submit'
                 disabled={desktopIsSubmitting}
-                className="px-8 py-[16px] rounded-full bg-white/90 border border-white shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#1a1a1a] font-satoshi text-base font-medium hover:bg-gray-50 hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all flex items-center justify-center cursor-pointer min-w-[180px]"
+                className="px-8 py-[16px] rounded-full glass-card text-[#1a1a1a] font-satoshi text-base font-medium hover:bg-[rgba(255,255,255,0.2)] transition-all flex items-center justify-center cursor-pointer min-w-[180px]"
               >
                 {desktopIsSubmitting ? 'Submitting...' : 'Submit'}
               </button>
@@ -366,7 +366,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={mobileIsSubmitting}
-                className="px-6 py-[10px] rounded-[40px] bg-white/40 border-[1px] border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-[#1a1a1a] font-satoshi text-[11px] font-medium hover:bg-white/60 backdrop-blur-md transition-all flex items-center justify-center cursor-pointer min-w-[140px]"
+                className="px-6 py-[10px] rounded-full glass-card text-[#1a1a1a] font-satoshi text-[11px] font-medium hover:bg-[rgba(255,255,255,0.2)] transition-all flex items-center justify-center cursor-pointer min-w-[140px]"
               >
                 {mobileIsSubmitting ? 'Joining...' : 'Join Now'}
               </button>

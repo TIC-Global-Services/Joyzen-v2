@@ -73,6 +73,15 @@
     radial-gradient(circle at 12% 8%, rgba(255, 230, 200, 0.08) 0%, rgba(255, 230, 200, 0) 42%);
 }
 
+/* Glass card — Figma-style glass effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
@@ -105,6 +114,15 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* Scrolling text animation */
+@keyframes scroll-text {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-text {
+  animation: scroll-text 15s linear infinite;
 }
 
 @utility no-scrollbar {

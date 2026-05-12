@@ -11,10 +11,10 @@ const Future = () => {
                 <div className="absolute -bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[40%] bg-[#b4def7] opacity-80 rounded-[100%] md:blur-[80px] md:block hidden" />
                 <div className="absolute -bottom-[5%] -left-[40%] w-[80%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.8)_0%,transparent_70%)]" />
 
-                <div className="absolute -bottom-[5%] -right-[30%] w-[70%] h-[30%] bg-[#036132] opacity-70 rounded-[100%] md:blur-[80px] md:block hidden" />
+                <div className="absolute -bottom-[15%] -right-[30%] w-[70%] h-[30%] bg-[#036132] opacity-70 rounded-[100%] md:blur-[80px] md:block hidden" />
                 <div className="absolute -bottom-[5%] -right-[30%] w-[70%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(3,97,50,0.5)_0%,transparent_70%)]" />
 
-                <div className="absolute -bottom-[20%] right-[20%] md:right-[-10%] w-[80%] h-[30%] bg-[#036132] opacity-50 rounded-[100%] md:blur-[140px] md:block hidden" />
+                <div className="absolute -bottom-[30%] right-[20%] md:right-[-10%] w-[80%] h-[30%] bg-[#036132] opacity-50 rounded-[100%] md:blur-[140px] md:block hidden" />
                 <div className="absolute -bottom-[20%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(3,97,50,0.3)_0%,transparent_70%)]" />
             </div>
 

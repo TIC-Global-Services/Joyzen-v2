@@ -43,6 +43,22 @@ const page = () => {
       <HeroSection />
       <JoyzenOffers />
       <WhatJoyzenWillOffer />
+      <section className="relative w-full overflow-hidden bg-white py-12 md:py-20">
+        <div className="whitespace-nowrap animate-scroll-text">
+          <span className="inline-block text-[120px] sm:text-[150px] md:text-[200px] font-medium text-[#1A1A1A] leading-none tracking-tight px-4">
+            Wherever you are, Joyzen meets you there, and stays with you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+          <span className="inline-block text-[120px] sm:text-[150px] md:text-[200px] font-medium text-[#1A1A1A] leading-none tracking-tight px-4">
+            Wherever you are, Joyzen meets you there, and stays with you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+          <span className="inline-block text-[120px] sm:text-[150px] md:text-[200px] font-medium text-[#1A1A1A] leading-none tracking-tight px-4">
+            Wherever you are, Joyzen meets you there, and stays with you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+          <span className="inline-block text-[120px] sm:text-[150px] md:text-[200px] font-medium text-[#1A1A1A] leading-none tracking-tight px-4">
+            Wherever you are, Joyzen meets you there, and stays with you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+        </div>
+      </section>
     </>
   )
 }

@@ -233,15 +233,15 @@ const Joyzen = () => {
         
         {/* Background Soft Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none transform-gpu" style={{ transform: 'translateZ(0)' }}>
-          <div className="absolute bottom-[15%] -left-[40%] md:left-[-50%] w-[80%] h-[40%] bg-[#b4def7] opacity-80 rounded-[100%] md:blur-[80px] md:block hidden" />
-          <div className="absolute -bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[20%] bg-[#EF8F60] opacity-80 rounded-[100%] md:blur-[80px] md:block hidden" />
+          <div className="absolute bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[40%] bg-[#b4def7] opacity-80 rounded-[100%] md:blur-[120px] md:block hidden" />
+          <div className="absolute -bottom-[5%] -left-[40%] md:left-[-50%] w-[80%] h-[20%] bg-[#EF8F60] opacity-80 rounded-[100%] md:blur-[120px] md:block hidden" />
           <div className="absolute -bottom-[5%] -left-[40%] w-[80%] h-[40%] md:hidden block bg-[radial-gradient(circle,rgba(180,222,247,0.8)_0%,transparent_70%)]" />
 
-          <div className="absolute bottom-[10%] right-[-40%] w-[70%] h-[30%] bg-[#f8e780] opacity-90 rounded-[100%] md:blur-[80px] md:block hidden" />
-          <div className="absolute bottom-[30%] right-[-40%] w-[70%] h-[30%] bg-[#ddc4df] opacity-100 rounded-[100%] md:blur-[80px] md:block hidden" />
+          <div className="absolute bottom-[0%] right-[-40%] w-[70%] h-[30%] bg-[#f8e780] opacity-60 rounded-[100%] md:blur-[120px] md:block hidden" />
+          <div className="absolute bottom-[20%] right-[-40%] w-[70%] h-[30%] bg-[#ddc4df] opacity-80 rounded-[100%] md:blur-[120px] md:block hidden" />
           <div className="absolute -bottom-[5%] -right-[30%] w-[70%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(3,97,50,0.5)_0%,transparent_70%)]" />
 
-          <div className="absolute -bottom-[20%] right-[20%] md:right-[-20%] w-[100%] h-[40%] bg-[#EF8F60] opacity-100 rounded-[100%] md:blur-[140px] md:block hidden" />
+          <div className="absolute -bottom-[30%] right-[20%] md:right-[-20%] w-[100%] h-[40%] bg-[#EF8F60] opacity-40 rounded-[100%] md:blur-[160px] md:block hidden" />
           <div className="absolute -bottom-[20%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(3,97,50,0.3)_0%,transparent_70%)]" />
         </div>
 
@@ -264,7 +264,7 @@ const Joyzen = () => {
                   style={{ zIndex: FEATURES.length - idx }}
                   className={`col-start-1 row-start-1 mx-auto w-full max-w-[24rem] md:mx-0 md:w-auto md:max-w-none shadow-xl h-[350px] sm:h-[380px] ${idx === 1 ? 'md:h-[220px] md:self-start lg:h-[250px] xl:h-[280px]' : idx === 4 ? 'md:h-[220px] md:self-end lg:h-[250px] xl:h-[280px]' : 'md:h-[280px] lg:h-[300px] xl:h-[340px]'} ${DESKTOP_SLOT_CLASSES[idx]} ${
                     feature.type === "card"
-                      ? "group bg-white/40 backdrop-blur-md border border-[#EDEDED] rounded-xl sm:rounded-[1.5rem] md:rounded-[1.5rem] p-6 md:p-8 text-left flex flex-col justify-end transition-shadow duration-300 hover:shadow-2xl"
+                      ? "group glass-card rounded-xl sm:rounded-[1.5rem] md:rounded-[1.5rem] p-6 md:p-8 text-left flex flex-col justify-end transition-shadow duration-300 hover:shadow-2xl"
                       : "relative rounded-xl sm:rounded-[1.5rem] md:rounded-[1.5rem] overflow-hidden group transition-shadow duration-300 hover:shadow-2xl"
                   }`}
                 >

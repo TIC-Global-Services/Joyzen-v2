@@ -133,10 +133,10 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
 
                             {/* Card Text Content */}
                             <div className="relative z-10">
-                                <h3 className="text-xl md:text-[1.5rem] font-medium text-[#1A1A1A] mb-4 font-sans tracking-tight">
+                                <h3 className="text-xl md:text-[2rem] font-medium text-[#1A1A1A] mb-4 font-sans tracking-tight">
                                     {item.title}
                                 </h3>
-                                <p className="text-[#555555] text-sm md:text-[0.95rem] leading-relaxed font-epilogue font-normal">
+                                <p className="text-sm md:text-[1rem] leading-tight tracking-tight font-epilogue font-normal">
                                     {item.description}
                                 </p>
                             </div>

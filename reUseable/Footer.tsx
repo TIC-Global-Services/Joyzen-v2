@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -14,13 +13,16 @@ const Footer = () => {
       {/* Logo center */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none  z-0">
         <div className="relative w-full h-full will-change-transform">
-          <Image
-            src="https://ik.imagekit.io/gyg6yfnd5/logo_ice_mock_up.jpg.jpeg?updatedAt=1774521080335"
-            alt="Joyzen 3D Glass Logo"
-            fill
-            className="object-cover object-center shadow-2xl"
-            priority
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/Joyzen_glass_footer.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
 
