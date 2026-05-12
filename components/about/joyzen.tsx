@@ -254,7 +254,7 @@ const Joyzen = () => {
           </div>
 
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center">
-            <div className="pointer-events-auto w-full px-4 sm:px-6 grid grid-cols-1 grid-rows-1 md:grid-cols-3 md:grid-rows-[280px_280px] md:gap-4 lg:grid-rows-[300px_300px] lg:gap-5 xl:grid-cols-3 xl:grid-rows-[340px_340px] xl:gap-5 lg:px-0">
+            <div className="pointer-events-auto w-full px-4 sm:px-6 grid grid-cols-1 grid-rows-1 md:grid-cols-3 md:grid-rows-[280px_280px] md:gap-4 lg:grid-rows-[300px_300px] lg:gap-5 xl:grid-cols-3 xl:grid-rows-[340px_340px] xl:gap-5 lg:px-14">
               {FEATURES.map((feature, idx) => (
                 <div
                   key={idx}

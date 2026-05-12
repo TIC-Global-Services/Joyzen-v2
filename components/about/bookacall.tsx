@@ -16,7 +16,7 @@ const BookACall = () => {
       </div>
 
       <div className="relative z-10 w-full md:max-w-7xl">
-        <div className="bg-white/90 backdrop-blur-md border border-black/2.5 rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
+        <div className="bg-white/90 backdrop-blur-md border border-black/2.5 rounded-[2.5rem] p-8 md:p-16 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
           {/* Mobile Logo Background - Centered behind text */}
           <div className="absolute md:hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-50 opacity-50 pointer-events-none z-0">
             <Image
