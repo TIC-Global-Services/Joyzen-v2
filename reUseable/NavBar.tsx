@@ -68,7 +68,7 @@ const NavBar = () => {
     }, [updatePill]);
 
     return (
-        <div className='absolute md:top-10 px-[5%] top-6 md:left-0 left-4 md:right-0 right-4 z-50'>
+        <div className='absolute md:top-10 px-6 md:px-12 xl:px-24 top-6 md:left-0 left-4 md:right-0 right-4 z-50'>
             <nav className="flex items-center justify-between">
                 <Link href="/">
                     <Image src="/orange_logo.svg" alt="Logo" width={147} height={44} className='w-25 h-10 lg:w-34 lg:h-10' />

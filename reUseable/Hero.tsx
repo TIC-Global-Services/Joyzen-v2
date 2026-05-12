@@ -51,9 +51,9 @@ const Hero = ({
             className="object-cover"
           />
         ) : null}
-        <div className={`absolute inset-x-0 bottom-0 h-32 ${isOnlyHome ? 'bg-gradient-to-t from-white via-white/50 to-transparent' : 'bg-gradient-to-t from-white/60 via-white/30 to-transparent'}`}></div>
+        <div className={`absolute inset-x-0 bottom-0 h-32 ${isOnlyHome ? 'bg-gradient-to-t from-white via-white/50 to-transparent' : 'bg-gradient-to-t from-white via-white/60 to-transparent'}`}></div>
       </div>
-      <div className="relative flex justify-end items-end px-6 md:px-12 xl:px-24 pb-20 z-15">
+      <div className="relative flex justify-end items-end px-6 md:px-12 xl:px-24 pb-32 z-15">
         <div className={`${contentMaxWidth} ${textColorClass}`}>
           <h1 className="text-4xl sm:text-5xl lg:text-[3.750rem] font-epilogue font-normal md:font-medium leading-[1.1] tracking-tight mb-6 drop-shadow-md">
             {title}

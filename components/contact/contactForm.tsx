@@ -111,7 +111,7 @@ const ContactForm = () => {
 
         {/* Form Side - independently positioned on the right */}
         <div className="absolute top-36 right-8 xl:right-16 w-[578px] flex flex-col items-start">
-          <h2 className="text-[2rem] xl:text-[2.25rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-3 uppercase leading-[1.1]">
+          <h2 className="text-[2rem] xl:text-[2.25rem] font-sans font-medium tracking-tighter text-[#1a1a1a] mb-8 uppercase leading-[1.1]">
             We’re here to support your health journey.
           </h2>
 
@@ -279,7 +279,7 @@ const ContactForm = () => {
 
 
         <div className="w-full flex flex-col items-center text-center px-5 relative z-10 pt-4">
-          <h2 className="text-2xl sm:text-3xl font-sans font-medium tracking-tighter text-[#1a1a1a] leading-[1.1] mb-3 uppercase">
+          <h2 className="text-2xl sm:text-3xl font-sans font-medium tracking-tighter text-[#1a1a1a] leading-[1.1] mb-8 uppercase">
             We’re here to support your health journey.
           </h2>
           <form onSubmit={mobileHandleSubmit((data) => onSubmit(data, mobileReset))} className="w-full flex flex-col gap-3 ">
