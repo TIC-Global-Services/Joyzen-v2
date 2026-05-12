@@ -39,19 +39,21 @@ const OverlapScroll: React.FC<OverlapScrollProps> = ({ heading, centerImage, dat
         });
 
         const duration = 2;
-        const isMobile = window.innerWidth < 768;
+        const w = window.innerWidth;
+        const isMobile = w < 768;
+        const isMedium = w >= 768 && w < 1024;
         const staggerDelay = isMobile ? 0.8 : 0.4;
 
-        // Phase 1: Landscape card spans width below title, shrinks to card size
+        // Phase 1: Landscape card overflows to sides, shrinks width only (height stays same)
         if (cardContainerRef.current) {
-            const screenW = window.innerWidth;
-            const multiplier = isMobile ? 0.92 : 0.85;
             const cardW = isMobile ? 280 : 380;
             const cardH = isMobile ? 380 : 480;
+            const maxW = isMobile ? w * 0.92 : isMedium ? w * 0.85 : 1043;
+            const landscapeW = Math.min(cardH / 0.46, maxW);
 
             gsap.set(cardContainerRef.current, {
-                width: screenW * multiplier,
-                height: screenW * 0.46 * multiplier,
+                width: landscapeW,
+                height: cardH,
             });
             tl.to(cardContainerRef.current, {
                 width: cardW,
