@@ -6,7 +6,7 @@ import whereweheaded from '@/assets/howwework/where_we_headed.jpg'
 const WhatWeAim = () => {
   return (
     <section className="relative w-full py-20 md:py-32 bg-[#F9F9F7] font-satoshi overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-4">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-10">
           
           {/* Left Column: Image Top, Text Bottom */}
