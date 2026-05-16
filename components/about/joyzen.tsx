@@ -273,7 +273,7 @@ const Joyzen = () => {
                       <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-medium text-[#1A1A1A] mb-3 md:mb-4 leading-[1.1] tracking-tight">
                         {feature.title}
                       </h3>
-                      <p className="text-sm md:text-base leading-[1.2] tracking-[-1px] font-normal">
+                      <p className="text-sm md:text-base leading-[1.2] tracking-tight font-normal">
                         {feature.description}
                       </p>
                     </>

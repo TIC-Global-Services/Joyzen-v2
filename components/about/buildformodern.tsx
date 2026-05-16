@@ -61,7 +61,7 @@ const Buildformodern = () => {
                 <div className="absolute -bottom-[30%] right-[20%] w-[80%] h-[30%] md:hidden block bg-[radial-gradient(circle,rgba(248,231,128,0.4)_0%,transparent_70%)]" />
             </div>
 
-            <div ref={containerRef} className="text-center leading-[1.2] tracking-[-2px]">
+            <div ref={containerRef} className="text-center leading-[1.2] tracking-tighter">
                 <p className="mb-2 md:mb-4 text-[60px] font-medium">
                     {splitText("Built for modern life")}
                     <br className="hidden md:block" />

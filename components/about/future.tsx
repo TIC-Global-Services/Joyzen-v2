@@ -23,7 +23,7 @@ const Future = () => {
                     <span className="text-2xl md:text-6xl font-medium text-[#1A1A1A]">
                         The Future
                     </span>
-                    <h2 className="text-4xl md:text-6xl lg:text-[6rem] font-medium tracking-[-5px] text-[#1A1A1A] leading-tight">
+                    <h2 className="text-4xl md:text-6xl lg:text-[6rem] font-medium tracking-tight text-[#1A1A1A] leading-tight">
                         We are building
                     </h2>
                 </div>

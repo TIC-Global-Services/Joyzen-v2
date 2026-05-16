@@ -141,7 +141,7 @@ const WhatJoyzenWillOffer = () => {
         </div>
 
         <div className="relative z-20">
-          <h3 className="text-xl md:text-[1.35rem] font-medium text-[#1A1A1A] mb-4 leading-tight tracking-[-1px] whitespace-pre-line transition-transform duration-500 group-hover:-translate-y-1">
+          <h3 className="text-xl md:text-[1.35rem] font-medium text-[#1A1A1A] mb-4 leading-tight tracking-tighter whitespace-pre-line transition-transform duration-500 group-hover:-translate-y-1">
             {item.title}
           </h3>
           <p className="text-[16px] leading-[1.3] font-normal tracking-tight transition-transform duration-500 group-hover:-translate-y-1">
