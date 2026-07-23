@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { satoshi, epilogue } from "@/fonts";
 import "./globals.css";
 import SmoothScroll from "@/reUseable/SmoothScroll";
-import Navbar from "@/reUseable/NavBar";
-import Footer from "@/reUseable/Footer";
-import Preloader from "@/reUseable/Preloader";
+// import Navbar from "@/reUseable/NavBar";
+// import Footer from "@/reUseable/Footer";
+// import Preloader from "@/reUseable/Preloader";
+import LaunchingSoon from "@/components/products/launchingsoon";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -55,12 +56,13 @@ export default function RootLayout({
       className={`${satoshi.variable} ${epilogue.variable}  h-full antialiased`}
     >
       <body className="min-h-full">
-        <SmoothScroll>
-          <Preloader/>
-          <Navbar/>
+        {/* <SmoothScroll>
+          <Preloader />
+          <Navbar />
           {children}
-          <Footer/>
-        </SmoothScroll>
+          <Footer />
+        </SmoothScroll> */}
+        <LaunchingSoon />
       </body>
     </html>
   );
