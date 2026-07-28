@@ -3,26 +3,23 @@ import ContactForm from '@/components/contact/contactForm'
 import { Metadata } from 'next'
 
 export const metadata:Metadata = {
-  title: "Contact Joyzen | Book a Clarity Call for Fertility & Health Support",
+  title: "Contact Joyzen | Innovation to Health Tech & Human Longevity",
 
   description:
-    "Get in touch with Joyzen to understand your reproductive health better. Book a clarity call and receive personalized guidance, continuous care, and expert support.",
+    "Joyzen is innovation to health tech for human longevity.",
 
   keywords: [
-    "Contact Joyzen",
-    "Fertility consultation online",
-    "Reproductive health support",
-    "Book fertility consultation",
-    "Hormone health guidance",
-    "Online fertility doctor",
-    "Continuous healthcare support",
-    "Joyzen contact"
+    "Joyzen",
+    "Innovation to health tech",
+    "Human longevity",
+    "Health tech innovation",
+    "Longevity healthcare"
   ],
 
   openGraph: {
     title: "Contact Joyzen",
     description:
-      "Book a clarity call and start your journey with continuous reproductive healthcare.",
+      "Joyzen is innovation to health tech for human longevity.",
     url: "https://yourdomain.com/contact",
     siteName: "Joyzen",
     // images: [

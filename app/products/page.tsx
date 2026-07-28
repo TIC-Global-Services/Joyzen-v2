@@ -4,26 +4,23 @@ import LaunchingSoon from '@/components/products/launchingsoon'
 import { Metadata } from 'next';
 
 export const metadata:Metadata = {
-  title: "Fertility Health Products | Launching Soon – Joyzen",
+  title: "Products | Innovation to Health Tech & Human Longevity – Joyzen",
 
   description:
-    "Joyzen is launching scientifically designed products to support reproductive health, hormones, and fertility. Stay tuned for innovative solutions built for modern life.",
+    "Joyzen is innovation to health tech for human longevity.",
 
   keywords: [
-    "Fertility products India",
-    "Reproductive health supplements",
-    "Hormone support products",
-    "Women fertility health products",
-    "Fertility care",
-    "Joyzen products",
-    "IVF support supplements",
-    "Fertility wellness products"
+    "Joyzen",
+    "Innovation to health tech",
+    "Human longevity",
+    "Health tech innovation",
+    "Longevity healthcare"
   ],
 
   openGraph: {
-    title: "Joyzen Fertility Products – Coming Soon",
+    title: "Joyzen Products – Innovation to Health Tech & Human Longevity",
     description:
-      "Scientifically designed products to support reproductive health and fertility. Launching soon.",
+      "Joyzen is innovation to health tech for human longevity.",
     url: "https://joyzen.in/products",
     siteName: "Joyzen",
     // images: [

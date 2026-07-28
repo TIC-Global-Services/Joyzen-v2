@@ -6,27 +6,23 @@ import ContinuesCare from '@/components/howwework/continuescare'
 import { Metadata } from 'next'
 
 export const metadata:Metadata = {
-  title: "How Joyzen Works | Continuous Fertility Care & IVF Process",
+  title: "How Joyzen Works | Innovation to Health Tech & Human Longevity",
 
   description:
-    "Discover how Joyzen delivers continuous fertility care with a dedicated doctor, daily guidance, hormone tracking, and personalized plans. Modern reproductive healthcare",
+    "Joyzen is innovation to health tech for human longevity.",
 
   keywords: [
-    "How fertility treatment works",
-    "IVF process",
-    "Continuous fertility care",
-    "Hormone tracking treatment",
-    "Fertility consultation online India",
-    "Personalized reproductive healthcare",
-    "Fertility clinic process",
-    "Women health care journey",
-    "Fertility care steps"
+    "Joyzen",
+    "Innovation to health tech",
+    "Human longevity",
+    "Health tech innovation",
+    "Longevity healthcare"
   ],
 
   openGraph: {
-    title: "How Joyzen Works – A New Standard in Fertility Care",
+    title: "How Joyzen Works – Innovation to Health Tech & Human Longevity",
     description:
-      "From understanding your body to continuous care and tracking, Joyzen provides a complete fertility care system.",
+      "Joyzen is innovation to health tech for human longevity.",
     url: "https://joyzen.in/how-we-work",
     siteName: "Joyzen",
     // images: [

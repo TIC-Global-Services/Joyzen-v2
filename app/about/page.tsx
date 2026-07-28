@@ -7,26 +7,23 @@ import React from 'react'
 import { Metadata } from 'next'
 
 export const metadata:Metadata = {
-  title: "About Joyzen | A New Approach to Reproductive Healthcare",
+  title: "About Joyzen | Innovation to Health Tech & Human Longevity",
 
   description:
-    "Joyzen is redefining reproductive healthcare with continuous, personalized care. Combining medical expertise, lifestyle guidance, and long-term health support for better outcomes.",
+    "Joyzen is innovation to health tech for human longevity.",
 
   keywords: [
-    "About Joyzen",
-    "Reproductive healthcare system",
-    "Fertility care India",
-    "Modern healthcare approach",
-    "Continuous care fertility",
-    "Women health and lifestyle",
-    "Fertility clinic",
-    "Holistic fertility care"
+    "Joyzen",
+    "Innovation to health tech",
+    "Human longevity",
+    "Health tech innovation",
+    "Longevity healthcare"
   ],
 
   openGraph: {
-    title: "About Joyzen – The Future of Reproductive Healthcare",
+    title: "About Joyzen – Innovation to Health Tech & Human Longevity",
     description:
-      "Joyzen is building a continuous care system for fertility, hormones, and long-term health. Designed for modern life.",
+      "Joyzen is innovation to health tech for human longevity.",
     url: "https://joyzen.in/about",
     siteName: "Joyzen",
     // images: [
