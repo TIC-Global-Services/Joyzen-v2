@@ -14,7 +14,7 @@ export const metadata:Metadata = {
     "Reproductive health supplements",
     "Hormone support products",
     "Women fertility health products",
-    "Fertility care Chennai",
+    "Fertility care",
     "Joyzen products",
     "IVF support supplements",
     "Fertility wellness products"

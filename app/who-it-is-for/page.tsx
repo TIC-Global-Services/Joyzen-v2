@@ -12,15 +12,15 @@ export const metadata:Metadata = {
 
   keywords: [
     "Fertility care for couples",
-    "PCOS treatment Chennai",
+    "PCOS treatment",
     "Hormone imbalance treatment India",
     "Fertility support for men",
     "Reproductive health for teens",
     "Pre pregnancy care India",
-    "Women fertility care Chennai",
+    "Women fertility care",
     "Personalized fertility programs",
     "Continuous reproductive healthcare",
-    "Fertility clinic Chennai"
+    "Fertility clinic"
   ],
 
   openGraph: {

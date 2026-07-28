@@ -19,7 +19,7 @@ export const metadata:Metadata = {
     "Modern healthcare approach",
     "Continuous care fertility",
     "Women health and lifestyle",
-    "Fertility clinic Chennai",
+    "Fertility clinic",
     "Holistic fertility care"
   ],
 

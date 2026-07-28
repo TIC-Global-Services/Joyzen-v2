@@ -9,16 +9,16 @@ export const metadata:Metadata = {
   title: "How Joyzen Works | Continuous Fertility Care & IVF Process",
 
   description:
-    "Discover how Joyzen delivers continuous fertility care with a dedicated doctor, daily guidance, hormone tracking, and personalized plans. Modern reproductive healthcare in Chennai.",
+    "Discover how Joyzen delivers continuous fertility care with a dedicated doctor, daily guidance, hormone tracking, and personalized plans. Modern reproductive healthcare",
 
   keywords: [
     "How fertility treatment works",
-    "IVF process Chennai",
+    "IVF process",
     "Continuous fertility care",
     "Hormone tracking treatment",
     "Fertility consultation online India",
     "Personalized reproductive healthcare",
-    "Fertility clinic Chennai process",
+    "Fertility clinic process",
     "Women health care journey",
     "Fertility care steps"
   ],
